@@ -9,3 +9,25 @@ class UserRegisterView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = RegistrationSerializer
     queryset = User.objects.all()
+
+
+class OwnProfileView(generics.RetrieveAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserProfileViewSerializer
+    queryset = User.objects.all()
+    
+    def get_object(self):
+        return self.request.user
+
+
+class OwnProfileEditView(generics.RetrieveUpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserProfileEditSerializer
+    queryset = User.objects.all()
+    
+    def get_object(self):
+        return self.request.user
+    
+    def patch(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return self.update(request, *args, **kwargs)
