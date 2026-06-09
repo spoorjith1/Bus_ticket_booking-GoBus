@@ -21,16 +21,13 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         password = validated_data.pop('password')
-        user = User(**validated_data)
-        user.set_password(password)
-        user.save()
-        return user
+        return User.objects.create_user(password=password, **validated_data)
     
 
 class UserProfileViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id' ,'profile_pic' ,'username', 'first_name', 'last_name']
+        fields = ['id' ,'profile_pic' ,'username', 'first_name', 'last_name', 'email', 'mobile_no', 'role']
 
 
 class UserProfileEditSerializer(serializers.ModelSerializer):
