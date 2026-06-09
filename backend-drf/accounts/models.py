@@ -10,7 +10,7 @@ class UserManager(BaseUserManager):
         
         user = self.model(email=email, username=username, **extra_fields)
         user.set_password(password)
-        user.save(using=self.__db)
+        user.save(using=self._db)
         return user
     
     def create_superuser(self, email, username, password=None, **extra_fields):
@@ -21,7 +21,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True, default='profile_pics/default.png')
+    profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True, default='default.png')
     mobile_no = models.CharField(max_length=15, blank=True, null=True)
     email = models.EmailField(unique=True)
     Role_Choices = (
@@ -37,3 +37,6 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
     
     objects = UserManager()
+    
+    def __str__(self):
+        return f"{self.id} | {self.username}"
