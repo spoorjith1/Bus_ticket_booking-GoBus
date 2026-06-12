@@ -3,16 +3,17 @@ from operators.models import Operator
 
 
 class Bus(models.Model):
-    operator = models.ForeignKey(Operator, on_delete=models.CASCADE)
-    bus_number = models.CharField(max_length=10)
-    bus_name = models.CharField(max_length=50)
+    operator = models.ForeignKey(Operator, on_delete=models.CASCADE, related_name='buses')
+    bus_number = models.CharField(max_length=20, unique=True)
+    bus_name = models.CharField(max_length=100)
     bus_types = (
-        ('ac_bus', 'ACBus'),
+        ('sleeper', 'Sleeper'),
+        ('ac_bus', 'AC Bus'),
         ('luxury', 'Luxury'),
         ('regular', 'Regular'),
     )
     bus_type = models.CharField(max_length=20, choices=bus_types, default='regular')
-    total_seats = models.IntegerField()
+    total_seats = models.PositiveIntegerField()
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

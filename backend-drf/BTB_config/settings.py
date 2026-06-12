@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'api',
     'accounts',
     'operators',
+    'buses',
+    'routes',
 ]
 
 MIDDLEWARE = [
