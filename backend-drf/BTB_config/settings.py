@@ -47,6 +47,12 @@ INSTALLED_APPS = [
     'operators',
     'buses',
     'routes',
+    'schedules',
+    'seats',
+    'bookings',
+    'booking_seats',
+    'payments',
+    'reviews',
 ]
 
 MIDDLEWARE = [

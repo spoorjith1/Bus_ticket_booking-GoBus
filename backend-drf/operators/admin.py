@@ -6,3 +6,4 @@ class OperatorAdmin(admin.ModelAdmin):
     list_display = ('op_name', 'op_user', 'op_email', 'op_mobile_no1')
     list_display_links = ('op_name', 'op_user')
     search_fields = ('op_name', 'op_user')
+    ordering = ('-created_at',)
