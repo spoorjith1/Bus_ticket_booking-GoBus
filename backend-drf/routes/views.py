@@ -1,3 +1,30 @@
 from django.shortcuts import render
+from .serializers import RouteSerializer
+from .models import Route
+from rest_framework import generics
+from accounts.permissions import IsAdmin, IsAdminOrIsOperator
 
-# Create your views here.
+class RouteCreateView(generics.CreateAPIView):
+    permission_classes = [IsAdmin]
+    serializer_class = RouteSerializer
+    queryset = Route.objects.all()
+
+class RouteUpdateView(generics.UpdateAPIView):
+    permission_classes = [IsAdmin]
+    serializer_class = RouteSerializer
+    queryset = Route.objects.all()
+
+class RouteDeleteView(generics.DestroyAPIView):
+    permission_classes = [IsAdmin]
+    serializer_class = RouteSerializer
+    queryset = Route.objects.all()
+
+class RouteListView(generics.ListAPIView):
+    permission_classes = [IsAdminOrIsOperator]
+    serializer_class = RouteSerializer
+    queryset = Route.objects.all()
+
+class RouteDetailView(generics.RetrieveAPIView):
+    permission_classes = [IsAdminOrIsOperator]
+    serializer_class = RouteSerializer
+    queryset = Route.objects.all()

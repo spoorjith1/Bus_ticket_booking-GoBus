@@ -55,3 +55,11 @@ class OperatorDeleteView(APIView):
         operator.op_user.save()
         operator.delete()
         return Response({'message': 'Operator deleted'}, status=status.HTTP_200_OK)
+
+
+class OperatorListView(APIView):
+    permission_classes = [IsAdmin]
+    def get(self, request):
+        operators = Operator.objects.all()
+        serializer = OperatorSerializer(operators, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
