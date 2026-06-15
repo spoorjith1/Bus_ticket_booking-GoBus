@@ -4,6 +4,7 @@ from accounts import views as AccViews
 from operators import views as OperatorViews
 from buses import views as BusViews
 from routes import views as RouteViews
+from schedules import views as ScheduleViews
 
 
 urlpatterns = [
@@ -39,4 +40,14 @@ urlpatterns = [
     path('routes/<int:id>/delete/', RouteViews.RouteDeleteView.as_view(), name='delete_route'),
     path('routes/list/', RouteViews.RouteListView.as_view(), name='list_routes'),
     path('routes/<int:id>/detail/', RouteViews.RouteDetailView.as_view(), name='detail_route'),
+    
+    #Schedules
+    path('operator/schedules/create/', ScheduleViews.ScheduleCreateView.as_view(), name='create_schedule'),
+    path('operator/schedules/<int:id>/update/', ScheduleViews.ScheduleUpdateView.as_view(), name='update_schedule'),
+    path('operator/schedules/<int:id>/delete/', ScheduleViews.ScheduleDeleteView.as_view(), name='delete_schedule'),
+    path('operator/schedules/list/', ScheduleViews.OperatorSchedulesListView.as_view(), name='list_operators_schedule'),
+    path('operator/schedules/<int:id>/details/', ScheduleViews.OperatorSchedulesDetailView.as_view(), name='detail_operator_schedule'),
+    
+    path('schedule/list/', ScheduleViews.ScheduleListView.as_view(), name='list_schedules'),
+    path('schedule/<int:id>/details/', ScheduleViews.ScheduleDetailView.as_view(), name='detail_schedule'),
 ]
