@@ -1,0 +1,48 @@
+:root {
+    --main-one: #ffff51;
+    --main-two: yellow;
+
+    --main-bg-one: black;
+    --main-bg-two: #181818;
+
+    --border-strong: #0d0d0d;
+    --box-bg: black;
+
+    --text-highlight: yellow;
+    --text-normal: black;
+    --text-bg: white;
+    --text-bg-light: #606060;
+    --text-light: white;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Footer*/
+.footer-container {
+    padding: 1rem 3rem;
+}
+
+.footer-box {
+    padding: 0.8rem;
+    border-top: 0.5px solid var(--border-strong);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.made-by {
+    font-size: 0.9rem;
+    color: var(--text-bg-light);
+}
