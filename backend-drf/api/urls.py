@@ -5,6 +5,8 @@ from operators import views as OperatorViews
 from buses import views as BusViews
 from routes import views as RouteViews
 from schedules import views as ScheduleViews
+from seats.views import ScheduleSeatsView
+from bookings import views as BookingViews
 
 
 urlpatterns = [
@@ -50,4 +52,10 @@ urlpatterns = [
     
     path('schedule/list/', ScheduleViews.ScheduleListView.as_view(), name='list_schedules'),
     path('schedule/<int:id>/details/', ScheduleViews.ScheduleDetailView.as_view(), name='detail_schedule'),
+    
+    #Seats
+    path('schedules/<int:id>/seats/', ScheduleSeatsView.as_view(), name='schedule_seats'),
+    
+    #Booking Summary
+    path('bookings/summary/', BookingViews.BookingSummaryView.as_view(), name='booking_summary'),
 ]

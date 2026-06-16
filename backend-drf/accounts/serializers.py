@@ -46,3 +46,13 @@ class UserProfileEditSerializer(serializers.ModelSerializer):
         if User.objects.filter(username__iexact=value).exclude(id=user.id).exists():
             raise serializers.ValidationError('The username is taken')
         return value
+
+
+class AddCoinsSerializer(serializers.Serializer):
+    amount = serializers.DecimalField(max_digits=10, decimal_places=2)
+    def validate_amount(self, value):
+        if value <= 0:
+            raise serializers.ValidationError('Amount must be greater than 0')
+        if value > 10000:
+            raise serializers.ValidationError('Maximum 10000 coins can be added at once')
+        return value
