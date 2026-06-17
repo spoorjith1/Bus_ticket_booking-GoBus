@@ -22,6 +22,8 @@ urlpatterns = [
     path('profile/me/', AccViews.OwnProfileView.as_view(), name='user_profile'),
     path('profile/me/edit/', AccViews.OwnProfileEditView.as_view(), name='user_profile_edit'),
     path('profile/me/delete', AccViews.OwnProfileDeleteView.as_view(), name='user_profile_delete'),
+    #Add to Wallet
+    path('wallet/add/coins/', AccViews.AddCoinsView.as_view(), name='add_coins'),
     
     #Operator
     path('operator/create/', OperatorViews.OperatorCreateView.as_view(), name='create_operator'),
@@ -53,6 +55,8 @@ urlpatterns = [
     #Open Schedules for all
     path('schedule/list/', ScheduleViews.ScheduleListView.as_view(), name='list_schedules'),
     path('schedule/<int:id>/details/', ScheduleViews.ScheduleDetailView.as_view(), name='detail_schedule'),
+    #Search Schedules
+    path('schedules/search/', ScheduleViews.ScheduleSearchView.as_view(), name='search_schedules'),
     
     #Seats
     path('schedules/<int:id>/seats/', ScheduleSeatsView.as_view(), name='schedule_seats'),
@@ -62,13 +66,13 @@ urlpatterns = [
     #Pay with coins
     path('bookings/pay/', BookingViews.PayWithCoinsView.as_view(), name='pay_with_coins'),
     #Booking list & Detail
-    path('bookings/list/', BookingViews.BookingsListView.as_view(), name='bookings_list'),
+    path('bookings/my/list/', BookingViews.BookingsListView.as_view(), name='bookings_list'),
     path('bookings/detail/<int:id>/', BookingViews.BookinDetailview.as_view(), name='booking_detail'),
     
     #Reviews
-    path('review/create/', ReviewViews.ReviewCreateView.as_view(), name='create_review'),
-    path('review/update/<int:id>/', ReviewViews.ReviewUpdateView.as_view(), name='update_review'),
-    path('review/delete/<int:id>/', ReviewViews.ReviewDeleteView.as_view(), name='delete_review'),
+    path('bus/<int:bus_id>/review/create/', ReviewViews.ReviewCreateView.as_view(), name='create_review'),
+    path('bus/<int:pk>/review/update/', ReviewViews.ReviewUpdateView.as_view(), name='update_review'),
+    path('bus/<int:pk>/review/delete/', ReviewViews.ReviewDeleteView.as_view(), name='delete_review'),
     #List Review for each bus
-    path('reviews/bus/<int:id>/', ReviewViews.BusReviewsView.as_view(), name='bus_reviews'),
+    path('bus/<int:bus_id>/reviews/', ReviewViews.BusReviewsView.as_view(), name='bus_reviews'),
 ]
