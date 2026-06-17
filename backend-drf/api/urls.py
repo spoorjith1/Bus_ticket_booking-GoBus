@@ -7,6 +7,7 @@ from routes import views as RouteViews
 from schedules import views as ScheduleViews
 from seats.views import ScheduleSeatsView
 from bookings import views as BookingViews
+from reviews import views as ReviewViews
 
 
 urlpatterns = [
@@ -17,10 +18,10 @@ urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='access_token'),
     path('token/refresh/', TokenRefreshView.as_view(), name='refresh_token'),
     
-    
     #User Profile View & Edit
     path('profile/me/', AccViews.OwnProfileView.as_view(), name='user_profile'),
     path('profile/me/edit/', AccViews.OwnProfileEditView.as_view(), name='user_profile_edit'),
+    path('profile/me/delete', AccViews.OwnProfileDeleteView.as_view(), name='user_profile_delete'),
     
     #Operator
     path('operator/create/', OperatorViews.OperatorCreateView.as_view(), name='create_operator'),
@@ -49,7 +50,7 @@ urlpatterns = [
     path('operator/schedules/<int:id>/delete/', ScheduleViews.ScheduleDeleteView.as_view(), name='delete_schedule'),
     path('operator/schedules/list/', ScheduleViews.OperatorSchedulesListView.as_view(), name='list_operators_schedule'),
     path('operator/schedules/<int:id>/details/', ScheduleViews.OperatorSchedulesDetailView.as_view(), name='detail_operator_schedule'),
-    
+    #Open Schedules for all
     path('schedule/list/', ScheduleViews.ScheduleListView.as_view(), name='list_schedules'),
     path('schedule/<int:id>/details/', ScheduleViews.ScheduleDetailView.as_view(), name='detail_schedule'),
     
@@ -58,11 +59,16 @@ urlpatterns = [
     
     #Booking Summary
     path('bookings/summary/', BookingViews.BookingSummaryView.as_view(), name='booking_summary'),
-    
     #Pay with coins
     path('bookings/pay/', BookingViews.PayWithCoinsView.as_view(), name='pay_with_coins'),
-    
     #Booking list & Detail
     path('bookings/list/', BookingViews.BookingsListView.as_view(), name='bookings_list'),
     path('bookings/detail/<int:id>/', BookingViews.BookinDetailview.as_view(), name='booking_detail'),
+    
+    #Reviews
+    path('review/create/', ReviewViews.ReviewCreateView.as_view(), name='create_review'),
+    path('review/update/<int:id>/', ReviewViews.ReviewUpdateView.as_view(), name='update_review'),
+    path('review/delete/<int:id>/', ReviewViews.ReviewDeleteView.as_view(), name='delete_review'),
+    #List Review for each bus
+    path('reviews/bus/<int:id>/', ReviewViews.BusReviewsView.as_view(), name='bus_reviews'),
 ]

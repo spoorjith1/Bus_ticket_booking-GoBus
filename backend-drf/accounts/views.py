@@ -37,6 +37,14 @@ class OwnProfileEditView(generics.RetrieveUpdateAPIView):
         return self.update(request, *args, **kwargs)
 
 
+class OwnProfileDeleteView(generics.DestroyAPIView):
+    queryset = User.objects.all()
+    permission_classes = [IsCustomer]
+    
+    def get_object(self):
+        return self.request.user
+
+
 class AddCoinsView(APIView):
     permission_classes = [IsCustomer]
     def patch(self, request):
