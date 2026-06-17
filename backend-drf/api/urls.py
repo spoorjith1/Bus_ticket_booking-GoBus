@@ -58,4 +58,11 @@ urlpatterns = [
     
     #Booking Summary
     path('bookings/summary/', BookingViews.BookingSummaryView.as_view(), name='booking_summary'),
+    
+    #Pay with coins
+    path('bookings/pay/', BookingViews.PayWithCoinsView.as_view(), name='pay_with_coins'),
+    
+    #Booking list & Detail
+    path('bookings/list/', BookingViews.BookingsListView.as_view(), name='bookings_list'),
+    path('bookings/detail/<int:id>/', BookingViews.BookinDetailview.as_view(), name='booking_detail'),
 ]

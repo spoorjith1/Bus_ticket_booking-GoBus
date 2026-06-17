@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'seats',
     'bookings',
     'booking_seats',
-    'payments',
     'reviews',
 ]
 
