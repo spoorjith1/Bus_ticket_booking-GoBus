@@ -8,6 +8,7 @@ from rest_framework import status
 from accounts.permissions import IsOperator
 from rest_framework.permissions import AllowAny
 from django.utils import timezone
+from rest_framework import generics
 
 
 class ScheduleCreateView(APIView):
@@ -57,12 +58,11 @@ class OperatorSchedulesDetailView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class ScheduleListView(APIView):
+class ScheduleListView(generics.ListAPIView):
     permission_classes = [AllowAny]
-    def get(self, request):
-        schedules = Schedule.objects.filter(departure_datetime__gte=timezone.now()).order_by('departure_datetime')
-        serializer = ScheduleSerializer(schedules, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    serializer_class = ScheduleSerializer
+    def get_queryset(self):
+        return Schedule.objects.filter(departure_datetime__gte=timezone.now()).order_by('departure_datetime')
 
 
 class ScheduleDetailView(APIView):
