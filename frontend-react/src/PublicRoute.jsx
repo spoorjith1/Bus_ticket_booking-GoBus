@@ -3,9 +3,10 @@ import { AuthContext } from './AuthProvider';
 import { Navigate } from 'react-router-dom';
 
 const PublicRoute = ({ children }) => {
-  const { isLoggedIn } = useContext(AuthContext);
+  const auth = useContext(AuthContext);
+  console.log("AUTH:", auth);
 
-  return !isLoggedIn ? children : <Navigate to="/" />;
+  return children;
 };
 
 export default PublicRoute;

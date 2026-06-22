@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Footer from './components/Footer'
 import SearchBuses from './pages/SearchBuses';
 import Login from './pages/Login'
+import Register from './pages/Register'
 
 
 function AppRoutes() {
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Route path='/' element={<PublicRoute><Home /></PublicRoute>} />
       <Route path='/searchbuses' element={<PublicRoute><SearchBuses /></PublicRoute>} />
       <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
+      <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
     </Routes>
     <Footer />
     </>

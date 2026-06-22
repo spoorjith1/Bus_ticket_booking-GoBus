@@ -1,24 +1,28 @@
 :root {
-    --color-primary: #0891B2; /*main app color*/
-    --color-secondary: #1E293B; /*headings*/
-    --color-action: #75c5ff; /*buttons and actions*/
-    --color-bg: #b4efff;
-    --color-bg-big: #e3f9ff;
+    --main-one: #fe0000;
+    --main-two: #d10000;
+    
+    --text-highlight: #c40000;
+    --text-muted: #363636;
+    --text-white: white;
+    --text-link: #0458a1;
 
-    --text-light: #303030;
-    --text-black: #000000;
+    --border-light: #a5a5a5;
+    --border-black: black;
 
-    --border-light: #383838;
+    --shadow-light: #cccccc;
+}
+
+
+
+body, html {
+    overflow-x: hidden;
 }
 
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .page-container {
@@ -26,159 +30,173 @@ body {
 }
 
 
-/*Footer*/
+
+/*footer component*/
 .footer-container {
-    padding: 1rem 3rem;
+    padding: 10px 60px 40px;
 }
 
 .footer-box {
-    padding: 0.8rem;
-    border-top: 0.5px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-top: 1px solid black;
 }
 
-.footer-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+.footer-image {
+    height: 30px;
 }
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-made-by {
+    font-size: 1rem;
+}
+
+.footer-name {
+    color: var(--text-highlight);
+}
+
+.footer-copy-right {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/*footer mobile*/
 @media (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;
-        gap: 0.7rem;
+    .footer-image {
+        height: 25px;
+        width: 100px;
+    }
+    .footer-box {
+        padding: 6px;
+    }
+    .footer-container {
+        padding: 10px 10px 30px;
     }
 }
 
-.made-by {
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-
-.footer-title {
-    text-align: center;
-    padding: 0.3rem 0 1rem;
-    color: var(--color-primary);
-}
-
-.made-by-name {
-    color: var(--color-secondary);
-}
 
 
-/*search buses*/
-/*navbar*/
-.search-page {
-    padding-top: 100px;
-}
-
-.search-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 0.6rem;
-    background-color: var(--color-bg-big);
-}
-
-.navbar-inside {
+/*login and register page*/
+.login-page {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.search-box {
-    display: flex;
-    gap: 0.9rem;
-    align-items: center;
     justify-content: center;
-    border: 1px solid transparent;
-    padding: 0.8rem 1.3rem;
-    border-radius: 0.8rem;
-    background-color: var(--color-bg);
+    align-items: center;
 }
 
-.search-btn {
-    padding: 0.4rem 0.5rem;
-    border-radius: 0.4rem;
-    border: 1px solid var(--color-primary);
-    background-color: var(--color-action);
-    color: var(--text-black);
-    margin-top: 0.6rem;
-}
-.search-btn:hover {
-    opacity: 0.8;
-}
-
-.inputs-box {
+.sign-container {
     display: flex;
-    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
 }
 
-.input-fields {
-    padding: 0.3rem 0.2rem;
-    border: 1px solid var(--border-light);
-    border-radius: 0.4rem;
-    color: var(--text-light);
+.sign-box {
+    width: 100%;
+    max-width: 330px;
 }
 
-.input-fields::placeholder {
-    color: #a6a6a6;
+.sign-image {
+    width: 300px;
+    height: 70px;
 }
 
-.input-fields:hover {
-    border: 1px solid var(--color-primary);
+.sign-left-text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 6px;
 }
 
-.input-fields:focus {
-    outline: none;
-    border: 1px solid var(--color-primary);
-    box-shadow: 0 0 5px var(--color-primary);
+.sign-welcome {
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
-.navbar-title {
-    color: var(--color-primary);
-    padding-left: 1rem;
+.sign-text {
+    font-size: 1.1rem;
 }
 
-.navbar-profile-link {
-    color: var(--text-black);
+.sign-right {
+    padding: 10px;
 }
 
-.search-swap-btn {
-    background: none;
-    border: none;
-    font-size: 0.9rem;
-    opacity: 0.8;
-    cursor: pointer;
-}
-.search-swap-btn:hover {
-    transform: scale(1.05);
-    color: var(--color-primary);
-    transition: 200ms;
+.sign-form-container {
+    box-shadow: 0 0 8px var(--shadow-light);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.input-in-box {
+.sign-title {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.sign-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-box {
     display: flex;
     flex-direction: column;
 }
 
-.input-labels {
-    padding-left: 0.2rem;
-    font-size: 0.85rem;
-    color: var(--color-secondary);
+.input-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
-/*back arrow*/
-.back-arrow {
-    position: absolute;
-    top: 0.2rem;
-    left: 0.4rem;
-    padding: 0.2rem 0.4rem;
-    background-color: white;
-    color: black;
-    border-radius: 0.3rem;
+.input-field {
+    padding: 3px 2px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
 }
-.back-arrow:hover {
-    background-color: black;
-    color: white;
+
+.input-field:hover {
+    border: 1px solid var(--main-one);
+}
+
+.input-field:focus {
+    outline: none;
+    box-shadow: 0 0 2px var(--border-black);
+    border: 1px solid var(--shadow-light);
+}
+
+.sign-btn {
+    padding: 3px;
+    margin: 10px 0 4px;
+    border-radius: 4px;
+    border: 1px solid var(--main-one);
+    background-color: var(--main-one);
+    color: var(--text-white);
+    font-size: 0.95rem;
+}
+
+.sign-btn:hover {
+    background-color: var(--main-two);
+}
+
+.sign-alter {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.sign-alter-link {
+    text-decoration: none;
+    color: var(--text-link);
+}
+.sign-alter-link:hover {
+    text-decoration: underline;
 }
