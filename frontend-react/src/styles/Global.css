@@ -11,6 +11,8 @@
     --border-black: black;
 
     --shadow-light: #cccccc;
+
+    --bg-white: white;
 }
 
 
@@ -84,7 +86,7 @@ body, html {
 
 
 /*login and register page*/
-.login-page {
+.sign-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,7 +106,7 @@ body, html {
 
 .sign-image {
     width: 300px;
-    height: 70px;
+    height: 66px;
 }
 
 .sign-left-text-box {
@@ -140,6 +142,9 @@ body, html {
     text-align: center;
     font-size: 1.2rem;
 }
+.register-title {
+    color: var(--text-white);
+}
 
 .sign-form {
     display: flex;
@@ -156,21 +161,41 @@ body, html {
     font-size: 0.9rem;
     color: var(--text-muted);
 }
+.register-label {
+    font-size: 0.9rem;
+    color: #ebebeb;
+}
 
 .input-field {
     padding: 3px 2px;
     border: 1px solid var(--border-light);
     border-radius: 4px;
 }
+.register-field {
+    padding: 3px 2px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid transparent;
+}
 
 .input-field:hover {
     border: 1px solid var(--main-one);
+}
+.register-field:hover {
+    background-color: white;
+    border: 1px solid black;
 }
 
 .input-field:focus {
     outline: none;
     box-shadow: 0 0 2px var(--border-black);
     border: 1px solid var(--shadow-light);
+}
+.register-field:focus {
+    outline: none;
+    box-shadow: 0 0 2px black;
+    border: 1px solid black;
+    background-color: white;
 }
 
 .sign-btn {
@@ -182,7 +207,18 @@ body, html {
     color: var(--text-white);
     font-size: 0.95rem;
 }
-
+.register-btn {
+    padding: 3px;
+    margin: 10px 0 4px;
+    border-radius: 4px;
+    border: 1px solid white;
+    background-color: white;
+    color: var(--main-one);
+    font-size: 0.95rem;
+}
+.register-btn:hover {
+    opacity: 0.9;
+}
 .sign-btn:hover {
     background-color: var(--main-two);
 }
@@ -192,6 +228,11 @@ body, html {
     font-size: 0.95rem;
     color: var(--text-muted);
 }
+.register-alter {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #dedede;
+}
 
 .sign-alter-link {
     text-decoration: none;
@@ -199,4 +240,64 @@ body, html {
 }
 .sign-alter-link:hover {
     text-decoration: underline;
+}
+.register-alter-link {
+    text-decoration: none;
+    color: #81b4ff;
+}
+.register-alter-link:hover {
+    text-decoration: underline;
+}
+
+.register-page {
+    background-color: var(--main-one);
+}
+
+.register-container {
+    background-color: var(--bg-white);
+    padding: 40px 80px;
+    border-radius: 14px;
+}
+
+.register-sign-form-container {
+    box-shadow: 0 0 8px var(--shadow-light);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--main-one);
+}
+
+
+@media (max-width: 768px) {
+    .sign-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .sign-box {
+        width: 100%;
+        max-width: 300px;
+    }
+    .sign-image {
+        height: 50px;
+        width: 225px;
+    }
+    .register-container {
+        padding: 10px 20px;
+    }
+}
+
+.sign-errors {
+    color: red;
+    background-color: yellow;
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+.login-error {
+    color: red;
+    background-color: #ff000013;
+    font-size: 0.9rem;
+    margin-top: 6px;
 }

@@ -20,7 +20,6 @@ function AppRoutes() {
       <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
       <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
     </Routes>
-    <Footer />
     </>
   );
 }
