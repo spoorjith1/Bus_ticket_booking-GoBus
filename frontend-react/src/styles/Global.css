@@ -301,3 +301,24 @@ body, html {
     font-size: 0.9rem;
     margin-top: 6px;
 }
+
+
+/*navbar component*/
+.navbar {
+    background-color: var(--main-one);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.navbar-image {
+    height: 60px;
+    width: auto;
+}
+
+.navbar-user-icon:hover {
+    transform: scale(1.08);
+    transition: 200ms;
+}
