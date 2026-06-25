@@ -10,7 +10,7 @@ function Login() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const navigate = useNavigate()
-  const { setIsLoggedIn } = useContext(AuthContext)
+  const { setIsLoggedIn, setUser, setRole } = useContext(AuthContext)
 
   const handleLogin = async (e)=> {
     e.preventDefault();
@@ -30,7 +30,24 @@ function Login() {
       const response = await axiosInstance.post('/token/', userData)
       localStorage.setItem('accessToken', response.data.access)
       localStorage.setItem('refreshToken', response.data.refresh)
+
+      const LoggedUserData = await axiosInstance.get('/profile/me/')
+      setUser(LoggedUserData.data)
       setIsLoggedIn(true)
+
+      const role = LoggedUserData.data.role;
+      setRole(role);
+      localStorage.setItem('role', role);
+      setIsLoggedIn(true);
+      if (role === 'customer') {
+        navigate('/customer/dashboard');
+      }
+      else if (role === 'operator') {
+        navigate('/operator/dashboard');
+      }
+      else if (role === 'admin') {
+        navigate('/admin/dashboard');
+      }
       setError('')
       navigate('/')
     }

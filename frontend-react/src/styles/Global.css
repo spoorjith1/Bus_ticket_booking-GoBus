@@ -44,6 +44,16 @@
     height: 30px;
 }
 
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.footer-left-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
 .footer-right {
     display: flex;
     flex-direction: column;
@@ -339,7 +349,7 @@
 
 .nav-link-tag {
     text-decoration: none;
-    color: #ffffffc8;
+    color: #ffffffd7;
 }
 
 .nav-link-tag:hover {
@@ -361,29 +371,69 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    color: white;
 }
 
 .nav-login-btn {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid white;
     background-color: white;
     color: var(--main-one);
     border-radius: 6px;
+    text-decoration: none;
 }
 .nav-login-btn:hover {
-    color: #e6e6e6;
+    background-color: #e6e6e6;
+    border: 1px solid #e6e6e6;
 }
 
 .nav-register-btn {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid white;
     background: none;
     color: white;
     border-radius: 6px;
+    text-decoration: none;
 }
 .nav-register-btn:hover {
-    background-color: #e6e6e6;
-    color: var(--main-two);
+    background-color: white;
+    color: var(--main-one);
+    border: 1px solid white;
+}
+
+.nav-user-box {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-user-navlink {
+    text-decoration: none;
+    color: white;
+    padding: 4px;
+    border: 1px solid transparent;
+}
+.nav-user-navlink:hover {
+    border: 1px solid white;
+    border-radius: 8px;
+}
+.nav-user-navlink.active {
+    border: 1px solid white;
+    background-color: white;
+    color: var(--main-one);
+    border-radius: 8px;
+    box-shadow: 0 0 6px #6b6b6b;
+}
+
+.navbar-user-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.nav-username {
+    font-size: 1rem;
 }
 
 
@@ -456,6 +506,9 @@
 .hero-search-box:hover {
     box-shadow: 0 0 4px #4f4f4f;
     transform: scale(1.03);
+    .hero-search-element-left {
+        background-color: #c400004b;
+    }
 }
 
 .hero-search-element-left {
@@ -549,6 +602,9 @@
     justify-content: space-between;
     padding: 10px;
 }
+.pr-route-card:hover {
+    box-shadow: 0 0 5px var(--main-two);
+}
 
 .pr-card-left {
     display: flex;
@@ -590,4 +646,53 @@
     color: var(--main-one);
     font-size: 0.95rem;
     font-weight: bold;
+}
+
+
+/*why choose my bus component*/
+.why-mybus-section {
+    padding: 12px;
+}
+
+.why-mybus-title {
+    font-size: 1.3rem;
+    padding-left: 10px;
+}
+
+.why-mybus-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    gap: 30px;
+}
+
+.why-mybus-box {
+    width: 18%;
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    height: 140px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.why-mybus-icon-box {
+    padding: 8px;
+    background-color: #c400001c;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.why-mybus-icon {
+    font-size: 3rem;
+    color: #eb3737;
+}
+
+.why-mybus-box:hover {
+    .why-mybus-icon-box {
+        background-color: #c4000040;
+        transition: 200ms;
+    }
 }

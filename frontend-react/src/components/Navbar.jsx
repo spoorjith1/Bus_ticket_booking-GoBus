@@ -6,7 +6,13 @@ import AuthProvider, { AuthContext } from '../AuthProvider';
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
+
+  const DashboardPath = {
+    customer: '/customer/dashboard',
+    operator: '/operator/dashboard',
+    admin: '/admin/dashboard',
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,14 +44,18 @@ function Navbar() {
       </div>
 
       {isLoggedIn ? (
-        <NavLink to="/profile">
+        <NavLink to={DashboardPath[user.role]} className='nav-user-navlink'>
         {({ isActive }) => isActive ? 
-        (<FontAwesomeIcon icon={faCircleUser} size="2x" style={{ color: "black" }} className='navbar-user-icon' />) : 
-        (<FontAwesomeIcon icon={faUser} size="2x" style={{ color: "white" }} className='navbar-user-icon' />)}
+        (<div className='nav-user-box active'>
+          <span className='nav-username'>{user.username}</span><img src={user.profile_pic} className='navbar-user-img' />
+        </div>) : 
+        (<div className='nav-user-box'>
+          <span className='nav-username'>{user.username}</span><img src={user.profile_pic} className='navbar-user-img' />
+        </div>)}
         </NavLink>
         ) : (
         <div className='nav-sign-box'>
-            <NavLink to="/login" className='nav-login-btn'>Login</NavLink> / 
+            <NavLink to="/login" className='nav-login-btn'>Login</NavLink>/
             <NavLink to="/register" className='nav-register-btn'>Register</NavLink>
         </div>
       )}

@@ -9,10 +9,12 @@ import Footer from './components/Footer'
 import SearchBuses from './pages/SearchBuses';
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Profile from './pages/Profile'
 import Navbar from './components/Navbar';
 import HelpAndContact from './pages/HelpAndContact'
-
+import CustomerDashboard from './pages/CustomerDashboard'
+import OperatorDashboard from './pages/OperatorDashboard'
+import AdminDashboard from './pages/AdminDashboard'
+ 
 
 function AppRoutes() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -21,12 +23,14 @@ function AppRoutes() {
     <>
     <Navbar />
     <Routes>
-      <Route path='/' element={<PublicRoute><Home /></PublicRoute>} />
-      <Route path='/search-buses' element={<PublicRoute><SearchBuses /></PublicRoute>} />
+      <Route path='/' element={<Home />} />
+      <Route path='/search-buses' element={<SearchBuses />} />
       <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
       <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
-      <Route path='/profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
-      <Route path='/help-contact' element={<PublicRoute><HelpAndContact /></PublicRoute>} />
+      <Route path='/help-contact' element={<HelpAndContact />} />
+      <Route path='/customer/dashboard' element={<PrivateRoute role='customer'><CustomerDashboard /></PrivateRoute>} />
+      <Route path='/operator/dashboard' element={<PrivateRoute role='operator'><OperatorDashboard /></PrivateRoute>} />
+      <Route path='/admin/dashboard' element={<PrivateRoute role='admin'><AdminDashboard /></PrivateRoute>} />
     </Routes>
     <Footer />
     </>
