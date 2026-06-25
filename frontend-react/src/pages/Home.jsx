@@ -1,16 +1,16 @@
 import React from 'react'
 import SearchBuses from './SearchBuses'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import HeroSection from '../components/HeroSection'
+import PopularRoutes from '../components/PopularRoutes'
 
 function Home() {
   return (
     <>
-    <div className='page-container'>
-      <Navbar />
+    <div className='page-container home-page'>
+      <HeroSection />
+      <PopularRoutes />
     </div>
-    <Footer />
     </>
   )
 }

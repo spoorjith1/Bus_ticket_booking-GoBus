@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 import axiosInstance from '../axiosInstance'
 import { AuthContext } from '../AuthProvider'
 import { useNavigate } from 'react-router-dom'
@@ -84,7 +83,6 @@ function Login() {
 
       </div>
     </div>
-    <Footer />
     </>
   )
 }
