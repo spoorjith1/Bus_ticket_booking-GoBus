@@ -33,7 +33,7 @@ class UserProfileViewSerializer(serializers.ModelSerializer):
 class UserProfileEditSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'mobile_no']
+        fields = ['id', 'profile_pic', 'username', 'first_name', 'last_name', 'email', 'mobile_no']
     
     def validate_email(self, value):
         user = self.instance

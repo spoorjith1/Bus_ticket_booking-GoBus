@@ -7,6 +7,7 @@ from accounts.permissions import IsCustomer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 
 class UserRegisterView(generics.CreateAPIView):
@@ -16,7 +17,7 @@ class UserRegisterView(generics.CreateAPIView):
 
 
 class OwnProfileView(generics.RetrieveAPIView):
-    permission_classes = [IsCustomer]
+    permission_classes = [IsAuthenticated]
     serializer_class = UserProfileViewSerializer
     queryset = User.objects.all()
     
@@ -25,7 +26,7 @@ class OwnProfileView(generics.RetrieveAPIView):
 
 
 class OwnProfileEditView(generics.RetrieveUpdateAPIView):
-    permission_classes = [IsCustomer]
+    permission_classes = [IsAuthenticated]
     serializer_class = UserProfileEditSerializer
     queryset = User.objects.all()
     
@@ -39,7 +40,7 @@ class OwnProfileEditView(generics.RetrieveUpdateAPIView):
 
 class OwnProfileDeleteView(generics.DestroyAPIView):
     queryset = User.objects.all()
-    permission_classes = [IsCustomer]
+    permission_classes = [IsAuthenticated]
     
     def get_object(self):
         return self.request.user
