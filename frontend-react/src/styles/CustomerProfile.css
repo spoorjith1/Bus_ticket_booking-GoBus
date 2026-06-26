@@ -1,0 +1,161 @@
+:root {
+    --main-one: #fe0000;
+    --main-two: #d10000;
+    
+    --text-highlight: #c40000;
+    --text-muted: #363636;
+    --text-white: white;
+    --text-link: #0458a1;
+
+    --border-light: #a5a5a5;
+    --border-black: black;
+
+    --shadow-light: #cccccc;
+
+    --bg-white: white;
+    --bg-not-white: #ebebeb;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-container {
+    min-height: 100vh;
+}
+
+.profile-page {
+    padding: 10px 26px;
+}
+
+.profile-title {
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    padding: 10px 0;
+    margin-bottom: 16px;
+}
+
+.user-data-container {
+    padding: 10px 20px 26px;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.user-profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-data-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 60px;
+}
+
+.user-names {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-username {
+    color: var(--main-one);
+    font-size: 1.8rem;
+}
+
+.user-fullname {
+    font-size: 1.2rem;
+}
+
+.user-wallet-box {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+}
+
+.user-wallet-balance {
+    color: green;
+    border: 1px solid var(--border-light);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.user-add-more-btn {
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid var(--border-light);
+    color: var(--main-one);
+    cursor: pointer;
+}
+.user-add-more-btn:hover {
+    background-color: var(--main-one);
+    color: white;
+    border: 1px solid var(--main-one);
+}
+
+.add-coins-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-more-input {
+    padding: 3px 2px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    color: green;
+}
+
+.add-more-input:hover {
+    border: 1px solid black;
+}
+
+.add-more-input:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.add-btn-box {
+    display: flex;
+    gap: 10px;
+}
+
+.add-btn {
+    padding: 3px 2px;
+    background-color: var(--main-one);
+    color: white;
+    border: 1px solid var(--main-one);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.add-btn:hover {
+    background-color: var(--main-two);
+}
+
+.add-cancel-btn {
+    border: 1px solid var(--border-light);
+    padding: 3px 2px;
+    border-radius: 4px;
+}
+.add-cancel-btn:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.coins-error {
+    color: red;
+    background-color: #ff00001f;
+    font-size: 0.85rem;
+}
