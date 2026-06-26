@@ -113,7 +113,7 @@ class PayWithCoinsView(APIView):
 class BookingsListView(APIView):
     permission_classes = [IsCustomer]
     def get(self, request):
-        bookings = Booking.objects.filter(user=request.user).order_by('-created_at')
+        bookings = Booking.objects.filter(user=request.user).order_by('-booked_at')
         serializer = BookingSerializer(bookings, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

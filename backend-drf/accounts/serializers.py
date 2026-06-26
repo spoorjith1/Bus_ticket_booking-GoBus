@@ -27,7 +27,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 class UserProfileViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id' ,'profile_pic' ,'username', 'first_name', 'last_name', 'email', 'mobile_no', 'role']
+        fields = ['id' ,'profile_pic' ,'username', 'first_name', 'last_name', 'email', 'mobile_no', 'role', 'wallet_balance']
 
 
 class UserProfileEditSerializer(serializers.ModelSerializer):
@@ -53,6 +53,6 @@ class AddCoinsSerializer(serializers.Serializer):
     def validate_amount(self, value):
         if value <= 0:
             raise serializers.ValidationError('Amount must be greater than 0')
-        if value > 10000:
-            raise serializers.ValidationError('Maximum 10000 coins can be added at once')
+        if value > 5000:
+            raise serializers.ValidationError('Maximum 5000 coins can be added AT ONCE')
         return value
