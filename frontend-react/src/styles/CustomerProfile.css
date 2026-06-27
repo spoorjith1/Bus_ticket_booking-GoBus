@@ -32,7 +32,6 @@
 
 .profile-title {
     text-align: center;
-    border-bottom: 1px solid var(--border-light);
     padding: 10px 0;
     margin-bottom: 16px;
 }
@@ -40,7 +39,8 @@
 .user-data-container {
     padding: 10px 20px 26px;
     position: relative;
-    border-bottom: 1px solid var(--border-light);
+    border-radius: 10px;
+    box-shadow: 0 0 6px var(--border-light);
 }
 
 .user-profile-pic {
@@ -158,4 +158,75 @@
     color: red;
     background-color: #ff00001f;
     font-size: 0.85rem;
+}
+
+
+.settings-container {
+    padding: 10px 20px 30px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settings-box {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 0 6px var(--border-light);
+    border-radius: 10px;
+    width: 40%;
+    transition: 300ms;
+}
+.settings-box:hover {
+    transform: scale(1.03);
+}
+
+.settings-icon {
+    font-size: 32px;
+}
+
+.settings-text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.settings-title {
+    font-size: 1rem;
+}
+
+.settings-text {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.bookings-container {
+    padding: 14px 10px;
+}
+
+.bookings-title-box {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.bookings-icon {
+    color: var(--main-one);
+    font-size: 36px;
+}
+
+.bookings-title {
+    font-size: 1.3rem;
+}
+
+.no-bookings-msg-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-bookings-msg {
+    color: black;
+    font-size: 1.2rem;
 }

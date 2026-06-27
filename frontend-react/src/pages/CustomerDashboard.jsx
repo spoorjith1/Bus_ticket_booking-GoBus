@@ -3,6 +3,9 @@ import Logout from '../components/Logout'
 import axiosInstance from '../axiosInstance'
 import '../styles/CustomerProfile.css'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear, faUserPen, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom'
 
 function CustomerDashboard() {
   const [userProfile, setUserProfile] = useState(null)
@@ -11,10 +14,11 @@ function CustomerDashboard() {
   const [BookingsLoading, setBookingsLoading] = useState(false)
   const [coinsLoading, setCoinsLoading] = useState(false)
   const [ProfileError, setProfileError] = useState('')
-  const [BookingErrors, setBookingErrors] = useState('')
+  const [BookingsError, setBookingsError] = useState('')
   const [coinsError, setCoinsError] = useState('')
   const [showAddCoins, setShowAddCoins] = useState(false)
   const [coins, setCoins] = useState('')
+  const navigate = useNavigate()
 
   const fetchUserProfile = async ()=> {
     setProfileLoading(true)
@@ -37,7 +41,7 @@ function CustomerDashboard() {
       setBookings(response.data)
     }
     catch (error) {
-      setBookingErrors('Failed to Bookings')
+      setBookingsError('Failed to Bookings')
     }
     finally {
       setBookingsLoading(false)
@@ -114,26 +118,49 @@ function CustomerDashboard() {
         </div>
       </div>
     )}
-
-{/*
-  {BookingsError && <div>{BookingsError}</div>}
-    {BookingsLoading ? (
-      <p>Loading bookings...</p>
-    ) : bookings.length === 0 ? (
-      <p>No bookings found.</p>
-    ) : (
-      bookings.map((booking) => (
-        <div key={booking.id}>
-          <p>{booking.bus_name}</p>
-          <p>{booking.bus_number}</p>
-          <p>{booking.source} → {booking.destination}</p>
-          <p>{booking.distance}</p>
-          <p>{booking.seat_numbers.join(', ')}</p>
-          <p>{booking.total_amount}</p>
-          <p>{booking.booked_at}</p>
+    <div className='settings-container'>
+      <div className='settings-box' onClick={()=> navigate('/profile/settings')}>
+        <FontAwesomeIcon icon={faGear} className='settings-icon' />
+        <div className='settings-text-box'>
+          <h4 className='settings-title'>Settings</h4>
+          <p className='settings-text'>Manage your Account</p>
         </div>
-      ))
-    )}*/}
+      </div>
+      <div className='settings-box' onClick={()=> navigate('/profile/edit')}>
+        <FontAwesomeIcon icon={faUserPen} className='settings-icon' />
+        <div className='settings-text-box'>
+          <h4 className='settings-title'>Edit Profile</h4>
+          <p className='settings-text'>Change name, profile pic, contact info ...</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div className='bookings-container'>
+      <div className='bookings-title-box'>
+        <FontAwesomeIcon icon={faCalendarCheck} className='bookings-icon' />
+        <h3 className='bookings-title'>My Bookings</h3>
+      </div>
+    {BookingsError && <div>{BookingsError}</div>}
+      {BookingsLoading ? (
+        <p>Loading bookings...</p>
+      ) : bookings.length === 0 ? (
+        <div className='no-bookings-msg-box'><p className='no-bookings-msg'>No bookings found</p></div>
+      ) : (
+        <div>
+          {bookings.map((booking) => (
+            <div key={booking.id}>
+              <p>{booking.bus_name}</p>
+              <p>{booking.bus_number}</p>
+              <p>{booking.source} → {booking.destination}</p>
+              <p>{booking.distance}</p>
+              <p>{booking.seat_numbers.join(', ')}</p>
+              <p>{booking.total_amount}</p>
+              <p>{booking.booked_at}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   </div>
 );
 }

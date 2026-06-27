@@ -14,6 +14,8 @@ import HelpAndContact from './pages/HelpAndContact'
 import CustomerDashboard from './pages/CustomerDashboard'
 import OperatorDashboard from './pages/OperatorDashboard'
 import AdminDashboard from './pages/AdminDashboard'
+import ProfileEdit from './pages/ProfileEdit'
+import ProfileSettings from './pages/ProfileSettings'
  
 
 function AppRoutes() {
@@ -31,6 +33,8 @@ function AppRoutes() {
       <Route path='/customer/dashboard' element={<PrivateRoute role='customer'><CustomerDashboard /></PrivateRoute>} />
       <Route path='/operator/dashboard' element={<PrivateRoute role='operator'><OperatorDashboard /></PrivateRoute>} />
       <Route path='/admin/dashboard' element={<PrivateRoute role='admin'><AdminDashboard /></PrivateRoute>} />
+      <Route path='/profile/settings' element={<PrivateRoute><ProfileSettings /></PrivateRoute>} />
+      <Route path='/profile/edit' element={<PrivateRoute><ProfileEdit /></PrivateRoute>} />
     </Routes>
     <Footer />
     </>
