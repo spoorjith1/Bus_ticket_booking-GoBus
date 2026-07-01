@@ -16,6 +16,8 @@ import OperatorDashboard from './pages/OperatorDashboard'
 import AdminDashboard from './pages/AdminDashboard'
 import ProfileEdit from './pages/ProfileEdit'
 import ProfileSettings from './pages/ProfileSettings'
+import AdminManageOperators from './pages/AdminManageOperators';
+import AdminManageRoutes from './pages/AdminManageRoutes';
  
 
 function AppRoutes() {
@@ -35,6 +37,8 @@ function AppRoutes() {
       <Route path='/admin/dashboard' element={<PrivateRoute role='admin'><AdminDashboard /></PrivateRoute>} />
       <Route path='/profile/settings' element={<PrivateRoute><ProfileSettings /></PrivateRoute>} />
       <Route path='/profile/edit' element={<PrivateRoute><ProfileEdit /></PrivateRoute>} />
+      <Route path='/admin/operators-management' element={<PrivateRoute role='admin'><AdminManageOperators /></PrivateRoute>} />
+      <Route path='/admin/routes-management' element={<PrivateRoute role='admin'><AdminManageRoutes /></PrivateRoute>} />
     </Routes>
     <Footer />
     </>
