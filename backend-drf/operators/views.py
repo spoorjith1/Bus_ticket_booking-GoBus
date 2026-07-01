@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .serializers import OperatorSerializer
+from .serializers import OperatorSerializer, OperatorListSerializer
 from .models import Operator
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,8 +11,8 @@ from accounts.permissions import IsAdmin, IsOperator
 class OperatorCreateView(APIView):
     permission_classes = [IsAdmin]
     def post(self, request):
-        user_id = request.data.get('user_id')
-        user = get_object_or_404(User, id=user_id)
+        username = request.data.get('op_username')
+        user = get_object_or_404(User, username=username)
         
         if user.role == 'admin':
             return Response({'error': 'Admin cannot be an operator'}, status=status.HTTP_400_BAD_REQUEST)
@@ -60,6 +60,6 @@ class OperatorDeleteView(APIView):
 class OperatorListView(APIView):
     permission_classes = [IsAdmin]
     def get(self, request):
-        operators = Operator.objects.all()
-        serializer = OperatorSerializer(operators, many=True)
+        operators = Operator.objects.all().order_by('-created_at')
+        serializer = OperatorListSerializer(operators, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

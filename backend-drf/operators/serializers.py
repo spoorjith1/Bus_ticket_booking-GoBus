@@ -3,10 +3,9 @@ from .models import Operator
 
 
 class OperatorSerializer(serializers.ModelSerializer):
-    op_user = serializers.ReadOnlyField(source='op_user.username')
     class Meta:
         model = Operator
-        fields = ['id', 'op_user', 'op_name', 'op_logo', 'op_email', 'op_mobile_no1', 'op_mobile_no2', 'is_verified']
+        fields = ['op_name', 'op_logo', 'op_email', 'op_mobile_no1', 'op_mobile_no2', 'is_verified']
     
     def validate_op_name(self, value):
         operator = self.instance
@@ -43,3 +42,10 @@ class OperatorSerializer(serializers.ModelSerializer):
         if qs.exists():
             raise serializers.ValidationError('This mobile number already exists')
         return value
+
+
+class OperatorListSerializer(serializers.ModelSerializer):
+    op_username = serializers.CharField(source='op_user.username', read_only=True)
+    class Meta:
+        model = Operator
+        fields = ['op_username', 'op_name', 'op_logo', 'op_email', 'op_mobile_no1', 'op_mobile_no2', 'is_verified']

@@ -44,7 +44,7 @@ urlpatterns = [
     path('routes/<int:id>/update/', RouteViews.RouteUpdateView.as_view(), name='update_route'), #admin
     path('routes/<int:id>/delete/', RouteViews.RouteDeleteView.as_view(), name='delete_route'), #admin
     path('routes/list/', RouteViews.RouteListView.as_view(), name='list_routes'), #op and admin
-    path('routes/<int:id>/detail/', RouteViews.RouteDetailView.as_view(), name='detail_route'), #op adn admin
+    path('routes/<int:id>/detail/', RouteViews.RouteDetailView.as_view(), name='detail_route'), #op and admin
     
     #Schedules
     path('operator/schedules/create/', ScheduleViews.ScheduleCreateView.as_view(), name='create_schedule'), #op
