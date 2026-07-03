@@ -1,0 +1,462 @@
+:root {
+    --main-one: #fe0000;
+    --main-two: #d10000;
+    
+    --text-highlight: #c40000;
+    --text-muted: #363636;
+    --text-white: white;
+    --text-link: #0458a1;
+
+    --border-light: #a5a5a5;
+    --border-black: black;
+
+    --shadow-light: #cccccc;
+
+    --bg-white: white;
+    --bg-not-white: #f6f6f6;
+
+    --error-msg: #d03737;
+    --error-bg: #ff000019;
+    --success-msg: #288628;
+    --success-bg: #00800019;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.page-container {
+    min-height: 100vh;
+}
+
+.admin-manage-page {
+    background-color: var(--bg-not-white);
+}
+
+.admin-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+}
+
+.admin-info-wrap {
+    padding: 4px 40px;
+}
+
+.admin-username {
+    margin-bottom: 4px;
+    font-size: 1.5rem;
+    color: var(--main-one);
+}
+
+.admin-manage-links-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+.admin-manage-link-box {
+    width: 40%;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.admin-manage-link-box:hover {
+    box-shadow: 0 0 4px var(--text-muted);
+}
+
+.manage-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+
+/*Admin Operators & Routes Management*/
+.admin-manage-title {
+    text-align: center;
+    padding: 10px;
+    color: var(--main-one);
+}
+
+.admin-manage-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 10px;
+}
+
+.admin-list-section {
+    width: 70%;   
+}
+
+.admin-create-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: var(--bg-white);
+    box-shadow: 0 0 5px var(--border-light);
+}
+.admin-create-container:hover {
+    box-shadow: 0 0 5px black;
+}
+
+.admin-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-input-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.op-input-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.admin-input {
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 2px;
+}
+.admin-input:focus {
+    outline: none;
+    border: 1px solid var(--border-black);
+}
+
+.admin-create-btn {
+    padding: 2px;
+    border: 1px solid var(--border-black);
+    border-radius: 4px;
+    font-weight: 600;
+    background-color: white;
+    cursor: pointer;
+}
+.admin-create-btn:hover {
+    background-color: var(--main-one);
+    border: 1px solid var(--main-one);
+    color: white;
+}
+
+.admin-create-title {
+    padding: 6px;
+    border-bottom: 1px solid var(--border-black);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.op-create-img-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.admin-error {
+    color: var(--error-msg);
+    background-color: var(--error-bg);
+    text-align: center;
+}
+
+.admin-success {
+    color: var(--success-msg);
+    background-color: var(--success-bg);
+    text-align: center;
+}
+
+
+.admin-list-title {
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.admin-list-icon {
+    color: var(--main-one);
+}
+
+.admin-list-container-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.admin-list-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 6px 10px;
+}
+
+/*Operator & BusRoute components*/
+.op-list-box {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--bg-white);
+    box-shadow: 0 0 3px var(--border-light);
+    position: relative;
+}
+
+.op-box-op-info {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.op-box-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.op-box-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.op-box-username {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.op-box-email {
+    font-size: 0.9rem;
+    color: var(--text-link);
+}
+
+.op-box-number {
+    font-size: 0.8rem;
+    padding-top: 6px;
+}
+
+
+.op-delete-container {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+}
+
+.op-del-btn {
+    background: none;
+    border: none;
+    color: var(--main-one);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.op-del-btn:hover {
+    border: 1px solid var(--main-two);
+}
+
+.op-confirm-del-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: flex-end;
+    background-color: var(--error-bg);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.op-confirm-del-txt {
+    font-size: 0.95rem;
+    color: var(--main-one);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.op-del-span {
+    text-decoration: 1px solid underline;
+    font-weight: 600;
+}
+
+.op-confirm-cancel-btn {
+    border: 1px solid transparent;
+    background-color: var(--text-link);
+    border-radius: 6px;
+    padding: 3px 4px;
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+.op-confirm-del-btn {
+    border: 1px solid transparent;
+    background-color: var(--main-one);
+    border-radius: 6px;
+    padding: 3px 4px;
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+.op-confirm-btns-box {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+
+.route-list-box {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--bg-white);
+    box-shadow: 0 0 3px var(--border-light);
+    position: relative;
+}
+
+.route-manage-options {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+
+.route-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.route-name-box {
+    padding: 4px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.route-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.route-arrow-icon {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.route-distance {
+    padding-left: 4px;
+    color: var(--text-muted);
+}
+
+.route-manage-btn {
+    margin-left: 16px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: var(--error-bg);
+    border: 1px solid transparent;
+    font-size: 1rem;
+    transition: 200ms;
+}
+.manage-icon {
+    color: var(--main-one);
+}
+
+.route-manage-btn:hover {
+    transform: scale(1.10);
+    background-color: var(--main-one);
+    .manage-icon {
+        color: white;
+    }
+}
+
+
+.route-input-route-icon {
+    font-size: 0.9rem;
+    color: var(--main-one);
+}
+
+.route-edit-box {
+    background-color: var(--error-bg);
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px var(--border-light);
+}
+
+.route-edit-input {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-black);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.km {
+    margin-left: 10px;
+    width: 60px;
+}
+
+.route-edit-title {
+    font-size: 1rem;
+    color: var(--main-one);
+    font-weight: 600;
+    padding-bottom: 4px;
+}
+
+.route-confirm-btn {
+    padding: 2px 3px;
+    font-size: 0.95rem;
+    color: var(--main-one);
+    border: 1px solid var(--main-one);
+    background-color: var(--bg-white);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.route-cancel-btn {
+    padding: 2px 3px;
+    font-size: 0.9rem;
+    color: var(--text-white);
+    border: 1px solid var(--main-one);
+    background-color: var(--main-one);
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+.route-confirm-del-box {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--error-bg);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.route-del-text {
+    font-size: 0.95rem;
+}
+
+.route-del-btns-box {
+    display: flex;
+    justify-content: end;
+}

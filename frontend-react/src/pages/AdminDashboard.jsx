@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Logout from '../components/Logout'
 import axiosInstance from '../axiosInstance'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import '../styles/AdminDashboard.css'
 
 function AdminDashboard() {
   const [userProfile, setUserProfile] = useState(null)
   const [ProfileLoading, setProfileLoading] = useState(false)
   const [ProfileError, setProfileError] = useState('')
+  const navigate = useNavigate()
 
   const fetchUserProfile = async ()=> {
     setProfileLoading(true)
@@ -32,19 +34,30 @@ function AdminDashboard() {
 
   return (
     <div className='page-container'>
-      <Logout />
-      <h2>Admin Dashboard</h2>
+        <div className='admin-top'>
+          <h2 className='admin-title'>Admin Dashboard</h2>
+          <Logout />
+        </div>
+      <div className='admin-info-wrap'>
       {ProfileError && <div>{ProfileError}</div>}
       {userProfile && (
-        <div>
+        <div className='admin-info'>
           <img src={userProfile.profile_pic} className='user-profile-pic' />
-          <h3>{userProfile.username}</h3>
-          <p>{userProfile.first_name} {userProfile.last_name}</p>
+          <div>
+            <h3 className='admin-username'>{userProfile.username}</h3>
+            <p>{userProfile.first_name} {userProfile.last_name}</p>
+          </div>
         </div>
       )}
-      <hr />
-      <Link to='/admin/routes-management'>Manage Routes</Link><br />
-      <Link to='/admin/operators-management'>Manage operators</Link>
+      </div>
+      <div className='admin-manage-links-container'>
+        <div onClick={()=> navigate('/admin/routes-management')} className='admin-manage-link-box'>
+          <h3 className='manage-title'>Manage Routes</h3>
+        </div>
+        <div onClick={()=> navigate('/admin/operators-management')} className='admin-manage-link-box'>
+          <h3 className='manage-title'>Manage Operators</h3>
+        </div>
+      </div>
     </div>
   )
 }

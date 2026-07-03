@@ -15,8 +15,8 @@ function Logout() {
     navigate('/login')
   }
   return (
-    <div className='conf-box'>
-      <button onClick={handlelogout} className='conf-logout'>Logout</button>
+    <div className='logout-box'>
+      <button onClick={handlelogout} className='logout-btn'>Logout</button>
     </div>
   )
 }

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axiosInstance from '../axiosInstance'
 import { useNavigate } from 'react-router-dom'
 import Operator from '../components/Operator'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 function AdminManageOperators() {
   const [LogoPreview, setLogoPreview] = useState('')
@@ -82,48 +84,67 @@ function AdminManageOperators() {
     fetchOperators();
   }, [])
 
-  if (opListLoading) {
-    return <div>Loading...</div>
-  }
-
   return (
-    <div className='page-container'>
-      <h2>Operators Management</h2>
-      <div>
-        {createSuccess && <div>{createSuccess}</div>}
-        <form onSubmit={handleOperatorCreate}>
-          {LogoPreview && (<img src={LogoPreview} width='120' className='edit-profile-pic' />)}<br />
-          <label>Operator Logo</label>
-          <input type='file' accept='image/*' onChange={(e)=> {
-            setLogo(e.target.files[0]) 
-            setLogoPreview(URL.createObjectURL(e.target.files[0])) 
-          }}/><br />
-          <label>Operator username</label>
-          <input type='text' value={username} onChange={(e)=> setUsername(e.target.value)} /><br />
-          <label>Operator company name</label>
-          <input type='text' value={operatorName} onChange={(e)=> setOperatorName(e.target.value)} /><br />
-          <label>Email</label>
-          <input type='email' value={email} onChange={(e)=> setEmail(e.target.value)} /><br />
-          <label>Mobile No1</label>
-          <input type='text' value={numberOne} onChange={(e)=> setNumberOne(e.target.value)} /><br />
-          <label>Mobile No2</label>
-          <input type='text' value={numberTwo} onChange={(e)=> setNumberTwo(e.target.value)} /><br />
-          <label>Is Verified</label>
-          <input type='checkbox' checked={verified} onChange={(e)=> setVerified(e.target.checked)} /><br />
-          <br />
-          {CreateLoading ? (
-            <button type='submit' disabled>Creating Operator...</button>
+    <div className='page-container admin-manage-page'>
+      <h2 className='admin-manage-title'>Operators Management</h2>
+      <div className='admin-manage-container'>
+        <div className='admin-list-section'>
+          <h4 className='admin-list-title'><FontAwesomeIcon icon={faBookmark} className='admin-list-icon' /> Operators List</h4>
+          {opListLoading ? (
+            <div className='admin-list-container-loading'>Loading...</div>
           ) : (
-            <button type='submit'>Create Operator</button>
+            <div className='admin-list-container'>
+              {opListError && <p className='admin-error'>{opListError}</p>}
+              {opListData.map((operator)=> (
+                <Operator key={operator.id} operator={operator} fetchOperators={fetchOperators} />
+              ))}
+            </div>
           )}
-        </form>
-        {createError && <div>{createError}</div>}
-      </div>
-      <div>
-        {opListError && <div>{opListError}</div>}
-        {opListData.map((operator)=> (
-          <Operator key={operator.id} operator={operator} />
-        ))}
+        </div>
+        <div className='admin-create-container'>
+          <h4 className='admin-create-title'>Create Operator</h4>
+          {createSuccess && <p className='admin-success'>{createSuccess}</p>}
+          <form onSubmit={handleOperatorCreate} className='admin-form-container'>
+            {LogoPreview && (<img src={LogoPreview} className='op-create-img-preview' />)}
+            <div className='admin-input-box'>
+              <label className='admin-label'>Operator Logo</label>
+              <input className='admin-input' type='file' accept='image/*' onChange={(e)=> {
+                setLogo(e.target.files[0]) 
+                setLogoPreview(URL.createObjectURL(e.target.files[0])) 
+              }}/>
+            </div>
+            <div className='admin-input-box'>
+              <label className='admin-label'>Operator username</label>
+              <input className='admin-input' type='text' value={username} onChange={(e)=> setUsername(e.target.value)} />
+            </div>
+            <div className='admin-input-box'>
+              <label className='admin-label'>Operator company name</label>
+              <input className='admin-input' type='text' value={operatorName} onChange={(e)=> setOperatorName(e.target.value)} />
+            </div>
+            <div className='admin-input-box'>
+              <label className='admin-label'>Email</label>
+              <input className='admin-input' type='email' value={email} onChange={(e)=> setEmail(e.target.value)} />
+            </div>
+            <div className='admin-input-box'>
+              <label className='admin-label'>Mobile No1</label>
+              <input className='admin-input' type='text' value={numberOne} onChange={(e)=> setNumberOne(e.target.value)} />
+            </div>
+            <div className='admin-input-box'>
+              <label className='admin-label'>Mobile No2</label>
+              <input className='admin-input' type='text' value={numberTwo} onChange={(e)=> setNumberTwo(e.target.value)} />
+            </div>
+            <div className='admin-input-checkbox'>
+              <label className='admin-label'>Is Verified</label>
+              <input className='admin-input' type='checkbox' checked={verified} onChange={(e)=> setVerified(e.target.checked)} />
+            </div>
+            {CreateLoading ? (
+              <button type='submit' className='admin-create-btn' disabled>Creating Operator...</button>
+            ) : (
+              <button type='submit' className='admin-create-btn'>Create Operator</button>
+            )}
+          </form>
+          {createError && <p className='admin-error'>{createError}</p>}
+        </div>
       </div>
     </div>
   )

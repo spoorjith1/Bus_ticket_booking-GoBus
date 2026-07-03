@@ -29,7 +29,7 @@ function Navbar() {
 
   return (
     <div className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
-      <img src='mybus-white.png' className='navbar-image' />
+      <img src='/mybus-white.png' className='navbar-image' />
 
       <div className='navbar-links-box'>
         <NavLink to='/' className='nav-link-tag'>

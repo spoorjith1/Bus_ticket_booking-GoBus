@@ -49,7 +49,6 @@ function Login() {
         navigate('/admin/dashboard');
       }
       setError('')
-      navigate('/')
     }
     catch (error) {
       setError('InValid email or password')

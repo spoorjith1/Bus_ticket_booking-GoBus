@@ -13,7 +13,12 @@
     --shadow-light: #cccccc;
 
     --bg-white: white;
-    --bg-not-white: #ebebeb;
+    --bg-not-white: #f6f6f6;
+
+    --error-msg: #d03737;
+    --error-bg: #ff000019;
+    --success-msg: #288628;
+    --success-bg: #00800019;
 }
 
 * {

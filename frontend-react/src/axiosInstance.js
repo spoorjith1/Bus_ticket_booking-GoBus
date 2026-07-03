@@ -28,9 +28,13 @@ axiosInstance.interceptors.response.use(
   async function (error) {
     const originalRequest = error.config;
 
+    console.log(error.config.url);
+    console.log(error.response.status);
+
     if (
       error.response &&
       error.response.status === 401 &&
+      originalRequest.url !== '/token/' &&
       !originalRequest._retry
     ) {
       originalRequest._retry = true;
