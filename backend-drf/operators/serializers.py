@@ -48,4 +48,4 @@ class OperatorListSerializer(serializers.ModelSerializer):
     op_username = serializers.CharField(source='op_user.username', read_only=True)
     class Meta:
         model = Operator
-        fields = ['op_username', 'op_name', 'op_logo', 'op_email', 'op_mobile_no1', 'op_mobile_no2', 'is_verified']
+        fields = ['id', 'op_username', 'op_name', 'op_logo', 'op_email', 'op_mobile_no1', 'op_mobile_no2', 'is_verified']

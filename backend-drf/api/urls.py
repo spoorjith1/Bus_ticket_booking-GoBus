@@ -26,10 +26,10 @@ urlpatterns = [
     path('wallet/add/coins/', AccViews.AddCoinsView.as_view(), name='add_coins'),
     
     #Operator
-    path('operator/create/', OperatorViews.OperatorCreateView.as_view(), name='create_operator'), #admin
+    path('operator/create/', OperatorViews.OperatorCreateView.as_view(), name='create_operator'), #admin ✅
     path('operator/me/update/', OperatorViews.OperatorUpdateView.as_view(), name='update_operator'), #op
     path('operator/me/profile/', OperatorViews.OperatorProfileView.as_view(), name='view_operator'), #op
-    path('operator/<int:id>/delete/', OperatorViews.OperatorDeleteView.as_view(), name='delete_operator'), #admin
+    path('operator/<int:id>/delete/', OperatorViews.OperatorDeleteView.as_view(), name='delete_operator'), #admin ✅
     path('operator/list/', OperatorViews.OperatorListView.as_view(), name='operator_list'), #admin
     
     #Buses
@@ -40,11 +40,11 @@ urlpatterns = [
     path('operator/buses/<int:id>/detail/', BusViews.BusDetailView.as_view(), name='bus_detail'), #op
     
     #Routes
-    path('routes/create/', RouteViews.RouteCreateView.as_view(), name='create_route'), #admin
-    path('routes/<int:id>/update/', RouteViews.RouteUpdateView.as_view(), name='update_route'), #admin
-    path('routes/<int:id>/delete/', RouteViews.RouteDeleteView.as_view(), name='delete_route'), #admin
-    path('routes/list/', RouteViews.RouteListView.as_view(), name='list_routes'), #op and admin
-    path('routes/<int:id>/detail/', RouteViews.RouteDetailView.as_view(), name='detail_route'), #op and admin
+    path('routes/create/', RouteViews.RouteCreateView.as_view(), name='create_route'), #admin ✅
+    path('routes/<int:pk>/update/', RouteViews.RouteUpdateView.as_view(), name='update_route'), #admin
+    path('routes/<int:pk>/delete/', RouteViews.RouteDeleteView.as_view(), name='delete_route'), #admin ✅
+    path('routes/list/', RouteViews.RouteListView.as_view(), name='list_routes'), #op and admin ✅
+    path('routes/<int:pk>/detail/', RouteViews.RouteDetailView.as_view(), name='detail_route'), #op and admin
     
     #Schedules
     path('operator/schedules/create/', ScheduleViews.ScheduleCreateView.as_view(), name='create_schedule'), #op

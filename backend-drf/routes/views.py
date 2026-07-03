@@ -22,7 +22,7 @@ class RouteDeleteView(generics.DestroyAPIView):
 class RouteListView(generics.ListAPIView):
     permission_classes = [IsAdminOrIsOperator]
     serializer_class = RouteSerializer
-    queryset = Route.objects.all()
+    queryset = Route.objects.all().order_by('-created_at')
 
 class RouteDetailView(generics.RetrieveAPIView):
     permission_classes = [IsAdminOrIsOperator]
