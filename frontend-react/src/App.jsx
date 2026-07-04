@@ -18,7 +18,10 @@ import ProfileEdit from './pages/ProfileEdit'
 import ProfileSettings from './pages/ProfileSettings'
 import AdminManageOperators from './pages/AdminManageOperators';
 import AdminManageRoutes from './pages/AdminManageRoutes';
- 
+import OperatorManagebuses from './pages/OperatorManagebuses';
+import OperatorManageSchedules from './pages/OperatorManageSchedules';
+import OperatorScheduleDetail from './pages/OperatorScheduleDetail';
+
 
 function AppRoutes() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -39,6 +42,9 @@ function AppRoutes() {
       <Route path='/profile/edit' element={<PrivateRoute><ProfileEdit /></PrivateRoute>} />
       <Route path='/admin/operators-management' element={<PrivateRoute role='admin'><AdminManageOperators /></PrivateRoute>} />
       <Route path='/admin/routes-management' element={<PrivateRoute role='admin'><AdminManageRoutes /></PrivateRoute>} />
+      <Route path='/operator/buses-management' element={<PrivateRoute role='operator'><OperatorManagebuses /></PrivateRoute>} />
+      <Route path='/operator/schedules-management' element={<PrivateRoute role='operator'><OperatorManageSchedules /></PrivateRoute>} />
+      <Route path='/operator/schedules/:scheduleID' element={<PrivateRoute role='operator'><OperatorScheduleDetail /></PrivateRoute>} />
     </Routes>
     <Footer />
     </>

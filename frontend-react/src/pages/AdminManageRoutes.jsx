@@ -3,6 +3,7 @@ import axiosInstance from '../axiosInstance'
 import BusRoute from '../components/BusRoute'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBusSide } from '@fortawesome/free-solid-svg-icons';
+import '../styles/AdminDashboard.css'
 
 function AdminManageRoutes() {
   const [source, setSource] = useState('')

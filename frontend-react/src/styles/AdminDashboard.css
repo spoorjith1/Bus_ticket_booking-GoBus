@@ -11,13 +11,14 @@
     --border-black: black;
 
     --shadow-light: #cccccc;
+    --shadow-light-hover: #b3b3b3;
 
     --bg-white: white;
     --bg-not-white: #f6f6f6;
 
     --error-msg: #d03737;
     --error-bg: #ff000019;
-    --success-msg: #288628;
+    --success-msg: #1a551a;
     --success-bg: #00800019;
 }
 

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Operator from '../components/Operator'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import '../styles/AdminDashboard.css'
 
 function AdminManageOperators() {
   const [LogoPreview, setLogoPreview] = useState('')
