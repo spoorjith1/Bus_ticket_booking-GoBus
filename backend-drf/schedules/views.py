@@ -18,7 +18,7 @@ class ScheduleCreateView(APIView):
         get_object_or_404(Bus, id=bus_id, operator=request.user.operator)
         serializer = ScheduleSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(operator=request.user.operator)
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

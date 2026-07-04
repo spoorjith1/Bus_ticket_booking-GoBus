@@ -12,45 +12,45 @@ from reviews import views as ReviewViews
 
 urlpatterns = [
     #Register
-    path('register/', AccViews.UserRegisterView.as_view(), name='user_registration'),
+    path('register/', AccViews.UserRegisterView.as_view(), name='user_registration'), #✅
    
     #Login
-    path('token/', TokenObtainPairView.as_view(), name='access_token'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='refresh_token'),
+    path('token/', TokenObtainPairView.as_view(), name='access_token'), #✅
+    path('token/refresh/', TokenRefreshView.as_view(), name='refresh_token'), #✅
     
     #User Profile View & Edit
     path('profile/me/', AccViews.OwnProfileView.as_view(), name='user_profile'), #user ✅
     path('profile/me/edit/', AccViews.OwnProfileEditView.as_view(), name='user_profile_edit'),
     path('profile/me/delete', AccViews.OwnProfileDeleteView.as_view(), name='user_profile_delete'),
     #Add to Wallet
-    path('wallet/add/coins/', AccViews.AddCoinsView.as_view(), name='add_coins'),
+    path('wallet/add/coins/', AccViews.AddCoinsView.as_view(), name='add_coins'), #✅
     
     #Operator
     path('operator/create/', OperatorViews.OperatorCreateView.as_view(), name='create_operator'), #admin ✅
     path('operator/me/update/', OperatorViews.OperatorUpdateView.as_view(), name='update_operator'), #op
-    path('operator/me/profile/', OperatorViews.OperatorProfileView.as_view(), name='view_operator'), #op
+    path('operator/me/profile/', OperatorViews.OperatorProfileView.as_view(), name='view_operator'), #op ✅
     path('operator/<int:id>/delete/', OperatorViews.OperatorDeleteView.as_view(), name='delete_operator'), #admin ✅
-    path('operator/list/', OperatorViews.OperatorListView.as_view(), name='operator_list'), #admin
+    path('operator/list/', OperatorViews.OperatorListView.as_view(), name='operator_list'), #admin ✅
     
     #Buses
-    path('operator/buses/create/', BusViews.BusCreateView.as_view(), name='create_bus'), #op
+    path('operator/buses/create/', BusViews.BusCreateView.as_view(), name='create_bus'), #op ✅
     path('operator/buses/<int:id>/update/', BusViews.BusUpdateView.as_view(), name='update_bus'), #op
     path('operator/buses/<int:id>/delete/', BusViews.BusDeleteView.as_view(), name='delete_bus'), #op
-    path('operator/buses/list/', BusViews.BusListView.as_view(), name='bus_list'), #op
+    path('operator/buses/list/', BusViews.BusListView.as_view(), name='bus_list'), #op ✅
     path('operator/buses/<int:id>/detail/', BusViews.BusDetailView.as_view(), name='bus_detail'), #op
     
     #Routes
     path('routes/create/', RouteViews.RouteCreateView.as_view(), name='create_route'), #admin ✅
-    path('routes/<int:pk>/update/', RouteViews.RouteUpdateView.as_view(), name='update_route'), #admin
+    path('routes/<int:pk>/update/', RouteViews.RouteUpdateView.as_view(), name='update_route'), #admin ✅
     path('routes/<int:pk>/delete/', RouteViews.RouteDeleteView.as_view(), name='delete_route'), #admin ✅
     path('routes/list/', RouteViews.RouteListView.as_view(), name='list_routes'), #op and admin ✅
-    path('routes/<int:pk>/detail/', RouteViews.RouteDetailView.as_view(), name='detail_route'), #op and admin
+    path('routes/<int:pk>/detail/', RouteViews.RouteDetailView.as_view(), name='detail_route'),
     
     #Schedules
-    path('operator/schedules/create/', ScheduleViews.ScheduleCreateView.as_view(), name='create_schedule'), #op
+    path('operator/schedules/create/', ScheduleViews.ScheduleCreateView.as_view(), name='create_schedule'), #op ✅
     path('operator/schedules/<int:id>/update/', ScheduleViews.ScheduleUpdateView.as_view(), name='update_schedule'), #op
     path('operator/schedules/<int:id>/delete/', ScheduleViews.ScheduleDeleteView.as_view(), name='delete_schedule'), #op
-    path('operator/schedules/list/', ScheduleViews.OperatorSchedulesListView.as_view(), name='list_operators_schedule'), #op
+    path('operator/schedules/list/', ScheduleViews.OperatorSchedulesListView.as_view(), name='list_operators_schedule'), #op ✅
     path('operator/schedules/<int:id>/details/', ScheduleViews.OperatorSchedulesDetailView.as_view(), name='detail_operator_schedule'), #op
     #Open Schedules for all
     path('schedule/list/', ScheduleViews.ScheduleListView.as_view(), name='list_schedules'), #all
