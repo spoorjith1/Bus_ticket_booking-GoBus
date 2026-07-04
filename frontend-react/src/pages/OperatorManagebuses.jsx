@@ -33,6 +33,7 @@ function OperatorManagebuses() {
       setBusName('')
       setBusType('')
       setBusTotalSeats('')
+      fetchBuses();
     }
     catch (error) {
       setCreateError('Failed to create bus')

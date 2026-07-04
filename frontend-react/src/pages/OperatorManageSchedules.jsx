@@ -91,6 +91,7 @@ function OperatorManageSchedules() {
       setDepartureDateTime('')
       setArrivalDateTime('')
       setFare('')
+      fetchSchedules()
     }
     catch (error) {
       setCreateError('Failed to create schedule')
