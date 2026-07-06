@@ -43,7 +43,7 @@ body {
     color: var(--main-one);
     font-size: 1rem;
     border-radius: 6px;
-    padding: 2px 3px;
+    padding: 3px 5px;
 }
 .logout-btn:hover {
     color: var(--text-white);

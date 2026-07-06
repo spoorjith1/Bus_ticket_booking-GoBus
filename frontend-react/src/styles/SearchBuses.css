@@ -1,0 +1,286 @@
+:root {
+    --main-one: #fe0000;
+    --main-two: #d10000;
+    
+    --text-highlight: #c40000;
+    --text-muted: #363636;
+    --text-white: white;
+    --text-link: #0458a1;
+
+    --border-light: #a5a5a5;
+    --border-black: black;
+
+    --shadow-light: #cccccc;
+    --shadow-light-hover: #b3b3b3;
+
+    --bg-white: white;
+    --bg-not-white: #f6f6f6;
+
+    --error-msg: #d03737;
+    --error-bg: #ff000019;
+    --success-msg: #1a551a;
+    --success-bg: #00800019;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.page-container {
+    min-height: 100vh;
+    padding: 5px 10px;
+}
+
+.search-buses-page {
+    padding: 10px;
+}
+
+.bsbar-floating-container {
+    position: sticky;
+    top: 100px;
+    width: 86%;
+    margin: 0 auto;
+    box-shadow: 0 0 6px #747474;
+    padding: 14px;
+    border-radius: 14px;
+    background-color: var(--bg-white);
+    z-index: 100;
+}
+
+.bsbar-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+}
+
+.bsbar-input-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.bsbar-input-box-in {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.bsbar-input-icons {
+    color: var(--main-one);
+    font-size: 1.8rem;
+}
+
+.bsbar-route-box {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.bsbar-arrows-btn {
+    background: none;
+    border: none;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    background-color: var(--bg-not-white);
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.bsbar-arrows-btn:hover {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 3px var(--text-link);
+}
+
+.bsbar-input-labels {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.bsbar-input-fields {
+    border: none;
+    border-bottom: 2px solid var(--main-one);
+    padding: 3px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.bsbar-input-fields:hover {
+    border-bottom: 2px solid var(--main-two);
+}
+
+.bsbar-input-fields:focus {
+    outline: none;
+    border-bottom: 2px solid var(--text-link);
+}
+
+.bsbar-input-date {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.bsbar-search-btn {
+    font-size: 1.1rem;
+    padding: 15px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--main-one);
+    background-color: var(--main-one);
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.bsbar-search-btn:hover {
+    background-color: var(--main-two);
+}
+
+.bsbar-search-icon {
+    font-size: 1.3rem;
+    padding-right: 4px;
+}
+
+.bs-no-buses-msg {
+    color: var(--main-one);
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    font-size: 1.2rem;
+}
+
+
+.bs-grid-container {
+    width: 80%;
+    padding: 6px 10px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.bsc-sch-box {
+    box-shadow: 0 0 6px var(--shadow-light);
+    background-color: var(--bg-white);
+    border-radius: 14px;
+    padding: 10px;
+}
+
+.bsc-sch-in {
+    display: flex;
+    padding: 0 4px;
+    justify-content: space-between;
+}
+
+.bsc-sch-op-name {
+    color: var(--text-link);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.bsc-sch-span {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.bsc-sch-bus-type {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.bsc-bus-type {
+    margin-top: 4px;
+}
+
+.bsc-sch-route-info {
+    display: flex;
+    gap: 24px;
+}
+
+.bsc-sch-route {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.bsc-sch-datetime {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.bsc-route-info-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bsc-sch-right-arrow {
+    color: var(--main-one);
+    font-size: 1.2rem;
+}
+
+.bsc-route-in-mid {
+    gap: 24px;
+}
+
+.bsc-duration {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.bsc-distance {
+    font-size: 0.95rem;
+    margin-top: 4px;
+    padding-left: 4px;
+}
+
+.bsc-in-sec-last {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bsc-sec-last-date {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.bsc-fare {
+    color: var(--main-one);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.bsc-per-seat {
+    font-size: 0.95rem;
+}
+
+
+.bsc-sch-last {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.bsc-book-now-btn {
+    padding: 8px;
+    border: 1px solid var(--main-one);
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: var(--bg-white);
+    color: var(--main-one);
+}
+
+.bsc-book-now-btn:hover {
+    background-color: var(--main-one);
+    border: 1px solid var(--main-one);
+    color: var(--text-white);
+}
+
+.bsc-seats {
+    color: rgb(4, 129, 4);
+    font-size: 0.98rem;
+}
