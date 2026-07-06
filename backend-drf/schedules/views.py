@@ -76,9 +76,10 @@ class ScheduleDetailView(APIView):
 class ScheduleSearchView(APIView):
     permission_classes = [AllowAny]
     def get(self, request):
-        source = request.GET.get('source')
-        destination = request.GET.get('destination')
+        source = request.GET.get('source', '')
+        destination = request.GET.get('destination', '')
         journey_date = request.GET.get('journey_date')
+        bus_type = request.GET.get('bus_type')
         
         min_price = request.GET.get('min_price')
         max_price = request.GET.get('max_price')
@@ -88,9 +89,12 @@ class ScheduleSearchView(APIView):
         schedules = Schedule.objects.filter(
             route__source__icontains=source,
             route__destination__icontains=destination,
-            departure_datetime__date=journey_date,
             departure_datetime__gte=timezone.now()
         )
+        if journey_date:
+            schedules = schedules.filter(departure_datetime__date=journey_date)
+        if bus_type:
+            schedules = schedules.filter(bus__bus_type=bus_type)
         if min_price:
             schedules = schedules.filter(fare__gte=min_price)
         if max_price:
