@@ -4,20 +4,20 @@ The application allows role based authorization. bus operators can manage buses 
 
 ## Screenshots
 ### Customer Flow
-<img src="screenshots/Screenshot (784).png" width="700" />
-<img src="screenshots/Screenshot (785).png" width="700" />
-<img src="screenshots/Screenshot (786).png" width="700" />
-<img src="screenshots/Screenshot (787).png" width="700" />
+<img src="screenshots/screenshot1.png" width="700" />
+<img src="screenshots/screenshot2.png" width="700" />
+<img src="screenshots/screenshot3.png" width="700" />
+<img src="screenshots/screenshot4.png" width="700" />
 
 ### Operator Dashboard
-<img src="screenshots/Screenshot (788).png" width="700" />
-<img src="screenshots/Screenshot (789).png" width="700" />
-<img src="screenshots/Screenshot (790).png" width="700" />
+<img src="screenshots/screenshot5.png" width="700" />
+<img src="screenshots/screenshot6.png" width="700" />
+<img src="screenshots/screenshot7.png" width="700" />
 
 ### Admin Dashboard
-<img src="screenshots/Screenshot (791).png" width="700" />
-<img src="screenshots/Screenshot (792).png" width="700" />
-<img src="screenshots/Screenshot (793).png" width="700" />
+<img src="screenshots/screenshot8.png" width="700" />
+<img src="screenshots/screenshot9.png" width="700" />
+<img src="screenshots/screenshot10.png" width="700" />
 
 ## Features
 - user registration & login
