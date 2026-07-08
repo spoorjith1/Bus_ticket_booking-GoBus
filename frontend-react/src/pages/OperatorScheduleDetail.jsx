@@ -3,14 +3,15 @@ import { useParams } from 'react-router-dom'
 import axiosInstance from '../axiosInstance'
 
 function OperatorScheduleDetail() {
-  const { scheduleID } = useParams();
+  const { opScheduleID } = useParams();
   const [schedule, setSchedule] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  
   const fetchSchedule = async () => {
     setLoading(true);
     try {
-      const response = await axiosInstance.get(`/operator/schedules/${scheduleID}/details/`);
+      const response = await axiosInstance.get(`/operator/schedules/${opScheduleID}/details/`);
       setSchedule(response.data);
       setError("");
     }
@@ -24,7 +25,7 @@ function OperatorScheduleDetail() {
 
   useEffect(() => {
     fetchSchedule();
-  }, [scheduleID])
+  }, [opScheduleID])
   
   if (loading) return <div className='page-container'>Loading...</div>;
   if (error) return <div className='page-container'>{error}</div>;

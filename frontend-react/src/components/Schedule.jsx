@@ -2,8 +2,11 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import '../styles/SearchBuses.css'
+import { useNavigate } from 'react-router-dom'
 
 function Schedule({ schedule }) {
+  const navigate = useNavigate()
+
   return (
     <div className='bsc-sch-box'>
       <div className='bsc-sch-in'>
@@ -47,7 +50,7 @@ function Schedule({ schedule }) {
         </div>
 
         <div className='bsc-sch-last'>
-          <button className='bsc-book-now-btn'>Book Now</button>
+          <button className='bsc-book-now-btn' onClick={()=> navigate(`/book/ticket/details/${schedule.id}`)}>Book Now</button>
           <p className='bsc-seats'>{schedule.available_seats} seats available</p>
         </div>
       </div>

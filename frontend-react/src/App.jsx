@@ -21,6 +21,8 @@ import AdminManageRoutes from './pages/AdminManageRoutes';
 import OperatorManagebuses from './pages/OperatorManagebuses';
 import OperatorManageSchedules from './pages/OperatorManageSchedules';
 import OperatorScheduleDetail from './pages/OperatorScheduleDetail';
+import BookSeatDetails from './pages/BookSeatDetails';
+import BookingSummaryNPayment from './pages/BookingSummaryNPayment';
 
 
 function AppRoutes() {
@@ -44,7 +46,9 @@ function AppRoutes() {
       <Route path='/admin/routes-management' element={<PrivateRoute role='admin'><AdminManageRoutes /></PrivateRoute>} />
       <Route path='/operator/buses-management' element={<PrivateRoute role='operator'><OperatorManagebuses /></PrivateRoute>} />
       <Route path='/operator/schedules-management' element={<PrivateRoute role='operator'><OperatorManageSchedules /></PrivateRoute>} />
-      <Route path='/operator/schedules/:scheduleID' element={<PrivateRoute role='operator'><OperatorScheduleDetail /></PrivateRoute>} />
+      <Route path='/operator/schedules/:opScheduleID' element={<PrivateRoute role='operator'><OperatorScheduleDetail /></PrivateRoute>} />
+      <Route path='/book/ticket/details/:scheduleID' element={<PrivateRoute role='customer'><BookSeatDetails /></PrivateRoute>} />
+      <Route path='/booking-summary' element={<PrivateRoute role='customer'><BookingSummaryNPayment /></PrivateRoute>} />
     </Routes>
     <Footer />
     </>
