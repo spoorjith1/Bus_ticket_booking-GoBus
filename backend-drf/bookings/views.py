@@ -46,8 +46,10 @@ class BookingSummaryView(APIView):
         total_amount = (fare_amount + tax_amount)
         
         return Response({
-            'schedule_id': schedule.id, 'bus_name': schedule.bus.bus_name, 'bus_number': schedule.bus.bus_number,
-            'source': schedule.route.source, 'destination': schedule.route.destination, 'seat_numbers': seat_numbers,
+            'schedule_id': schedule.id, 'bus_name': schedule.bus.bus_name, 'bus_number': schedule.bus.bus_number, 
+            'operator_name': schedule.bus.operator.op_name,
+            'source': schedule.route.source, 'destination': schedule.route.destination, 'departure_datetime': schedule.departure_datetime,
+            'arrival_datetime': schedule.arrival_datetime,'seat_numbers': seat_numbers,
             'fare_per_seat': schedule.fare, 'number_of_seats': len(seat_ids), 'fare_amount': fare_amount,
             'tax_percentage': tax_percentage, 'tax_amount': tax_amount, 'total_amount': total_amount, 
             'wallet_balance': request.user.wallet_balance
