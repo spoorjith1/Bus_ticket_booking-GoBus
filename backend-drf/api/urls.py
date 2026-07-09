@@ -51,7 +51,7 @@ urlpatterns = [
     path('operator/schedules/<int:id>/update/', ScheduleViews.ScheduleUpdateView.as_view(), name='update_schedule'), #op
     path('operator/schedules/<int:id>/delete/', ScheduleViews.ScheduleDeleteView.as_view(), name='delete_schedule'), #op
     path('operator/schedules/list/', ScheduleViews.OperatorSchedulesListView.as_view(), name='list_operators_schedule'), #op ✅
-    path('operator/schedules/<int:id>/details/', ScheduleViews.OperatorSchedulesDetailView.as_view(), name='detail_operator_schedule'), #op
+    path('operator/schedules/<int:id>/details/', ScheduleViews.OperatorSchedulesDetailView.as_view(), name='detail_operator_schedule'), #op ✅
     #Open Schedules for all
     path('schedule/list/', ScheduleViews.ScheduleListView.as_view(), name='list_schedules'), #all ✅
     path('schedule/<int:id>/details/', ScheduleViews.ScheduleDetailView.as_view(), name='detail_schedule'), #all ✅
@@ -62,12 +62,12 @@ urlpatterns = [
     path('schedules/<int:id>/seats/', ScheduleSeatsView.as_view(), name='schedule_seats'), #user ✅
     
     #Booking Summary
-    path('bookings/summary/', BookingViews.BookingSummaryView.as_view(), name='booking_summary'), #user
+    path('bookings/summary/', BookingViews.BookingSummaryView.as_view(), name='booking_summary'), #user ✅
     #Pay with coins
-    path('bookings/pay/', BookingViews.PayWithCoinsView.as_view(), name='pay_with_coins'), #user
+    path('bookings/pay/', BookingViews.PayWithCoinsView.as_view(), name='pay_with_coins'), #user ✅
     #Booking list & Detail
     path('bookings/my/list/', BookingViews.BookingsListView.as_view(), name='bookings_list'), #user ✅
-    path('bookings/detail/<int:id>/', BookingViews.BookinDetailview.as_view(), name='booking_detail'), #user
+    path('bookings/detail/<int:id>/', BookingViews.BookinDetailview.as_view(), name='booking_detail'), #user ✅
     
     #Reviews
     path('bus/<int:bus_id>/review/create/', ReviewViews.ReviewCreateView.as_view(), name='create_review'), #user

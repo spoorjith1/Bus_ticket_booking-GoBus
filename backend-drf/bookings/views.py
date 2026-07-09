@@ -49,7 +49,8 @@ class BookingSummaryView(APIView):
             'schedule_id': schedule.id, 'bus_name': schedule.bus.bus_name, 'bus_number': schedule.bus.bus_number,
             'source': schedule.route.source, 'destination': schedule.route.destination, 'seat_numbers': seat_numbers,
             'fare_per_seat': schedule.fare, 'number_of_seats': len(seat_ids), 'fare_amount': fare_amount,
-            'tax_percentage': tax_percentage, 'tax_amount': tax_amount, 'total_amount': total_amount
+            'tax_percentage': tax_percentage, 'tax_amount': tax_amount, 'total_amount': total_amount, 
+            'wallet_balance': request.user.wallet_balance
             }, status=status.HTTP_200_OK)
 
 
@@ -72,7 +73,7 @@ class PayWithCoinsView(APIView):
         seats = Seat.objects.filter(id__in=seat_ids, bus=schedule.bus)
         
         if seats.count() != len(seat_ids):
-            return Response({'error', 'Invalid seats selected'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': 'Invalid seats selected'}, status=status.HTTP_400_BAD_REQUEST)
         
         for seat in seats:
             already_booked = BookingSeat.objects.filter(seat=seat, booking__schedule=schedule, booking__booking_status='confirmed').exists()
