@@ -20,6 +20,11 @@
     --error-bg: #ff000019;
     --success-msg: #1a551a;
     --success-bg: #00800019;
+
+    --seat-booked: #c9c9c9;
+    --seat-available: white;
+    --seat-border: #444444;
+    --seat-text: #2e2e2e;
 }
 
 * {
@@ -33,372 +38,416 @@
 }
 
 
-/* ===========================
-   BOOK SEAT DETAILS
-===========================*/
-
-.book-details-page{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    padding:40px 20px;
-    background:var(--bg-not-white);
+.book-details-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    background: var(--bg-not-white);
 }
 
-.bdp-container{
-    width:100%;
-    max-width:1000px;
-    background:var(--bg-white);
-    border-radius:16px;
-    box-shadow:0 6px 20px var(--shadow-light);
-    overflow:hidden;
+.bdp-container {
+    width: 100%;
+    max-width: 800px;
+    background: var(--bg-white);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px var(--shadow-light);
+    overflow: hidden;
+    padding: 24px 34px;
+}
+
+.bdp-muted {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.bdp-top-box {
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.bdp-bus-name {
+    color: var(--main-one);
+    font-size: 1.6rem;
+}
+
+.bdp-bus-number {
+    color: var(--text-link);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-left: 16px;
 }
 
 
-/* ===========================
-   TOP SECTION
-===========================*/
-
-.bdp-header{
-    padding:24px 30px;
-    border-bottom:1px solid var(--border-light);
-
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
+.bdp-route-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 14px 0 8px;
 }
 
-.bdp-bus-name{
-    color:var(--main-one);
-    font-size:2rem;
-    margin-bottom:6px;
-}
-
-.bdp-bus-number{
-    margin-left:12px;
-    color:var(--text-link);
-    font-size:1rem;
-    font-weight:500;
-}
-
-.bdp-company{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    color:var(--text-muted);
-    font-size:1rem;
-}
-
-/* ===========================
-   ROUTE
-===========================*/
-
-.bdp-route-box{
-    padding:24px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:40px;
-}
-
-.bdp-route-box h2{
-    color:var(--main-one);
+.bdp-route-box h2 {
     font-size:1.8rem;
 }
 
-.bdp-route-icon{
+.bdp-route-icon {
     font-size:1.5rem;
     color:var(--main-one);
 }
 
-/* ===========================
-   DETAILS GRID
-===========================*/
-
-.bdp-details-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
-    padding:0 30px 30px;
+.bdp-time-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.bdp-detail-card{
-    display:flex;
-    gap:15px;
-    align-items:center;
-    padding:16px;
-    border-radius:12px;
-    background:var(--bg-not-white);
-    transition:.25s;
+.bdp-time-box-in {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
 }
 
-.bdp-detail-card:hover{
-    box-shadow:0 4px 12px var(--shadow-light-hover);
-    transform:translateY(-2px);
+.bdp-time-arrival {
+    text-align: end;
 }
 
-.bdp-detail-card svg{
-    font-size:1.6rem;
-    color:var(--main-one);
+.bdp-datetime {
+    font-size: 1.1rem;
 }
 
-.bdp-detail-card small{
-    color:var(--text-muted);
-    display:block;
-    margin-bottom:4px;
+.bdp-distance-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
 }
 
-.bdp-detail-card p{
-    font-weight:600;
-    color:#4d0000;
+.bdp-avl-box {
+    margin-bottom: 16px;
 }
 
-/* ===========================
-   SEAT SECTION
-===========================*/
-
-.bdps-container{
-    margin:0 25px 25px;
-    border-radius:16px;
-    border:2px solid #ffd0d0;
-    background:var(--error-bg);
-    padding:25px;
+.bdp-avl-box-text {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-.bdps-title{
-    text-align:center;
-    color:var(--main-one);
-    font-size:1.6rem;
-    margin-bottom:20px;
-}
-
-.bdps-avl-seats{
-    text-align:center;
-    color:var(--text-muted);
-    font-size:1rem;
-}
-
-.bdps-avl-seats-span{
-    color:green;
-    font-size:1.2rem;
-    font-weight:700;
-}
-
-/* ===========================
-   LEGEND
-===========================*/
-
-.seat-legend{
-    margin:25px 0;
-    display:flex;
-    justify-content:center;
-    gap:35px;
-    flex-wrap:wrap;
-}
-
-.seat-legend div{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:.95rem;
-}
-
-.legend-box{
-    width:22px;
-    height:22px;
-    border-radius:6px;
-    border:1px solid var(--border-light);
-}
-
-.legend-box.available{
-    background:white;
-}
-
-.legend-box.selected{
-    background:var(--main-one);
-}
-
-.legend-box.booked{
-    background:#c9c9c9;
+.bdp-avl-box-seats {
+    color: green;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px solid green;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: var(--success-bg);
 }
 
 
-/* ===========================
-   SELECTED SEATS
-===========================*/
-
-.selected-seat-box{
-    margin-top:25px;
-    background:white;
-    border:1px solid #ffd6d6;
-    border-radius:10px;
-    padding:16px;
+.bdps-container {
+    margin: 6px 25px 25px;
+    border-radius: 16px;
+    border: 2px solid #ffd0d0;
+    background: #ff00000f;
+    padding: 25px;
 }
 
-.selected-seat-box strong{
-    color:var(--main-one);
-    display:block;
-    margin-bottom:8px;
+.bdps-title {
+    text-align: center;
+    color: var(--main-one);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
-.selected-seat-box p{
-    color:var(--text-muted);
-    word-break:break-word;
+.bdps-seats-legend-box {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
-
-/* ===========================
-   CONTINUE BUTTON
-===========================*/
-
-.bdps-continue-btn{
-    width:100%;
-    margin-top:22px;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:var(--main-one);
-    color:white;
-    font-size:1rem;
-    font-weight:600;
-    cursor:pointer;
-    transition:.25s;
+.bdps-seats-legend-box div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    color: var(--text-muted);
 }
 
-.bdps-continue-btn:hover:not(:disabled){
-    background:var(--main-two);
+.legend-box {
+    border: 1px solid var(--seat-border);
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
 }
 
-.bdps-continue-btn:disabled{
-    background:#bdbdbd;
-    cursor:not-allowed;
+.legend-box.available {
+    background-color: var(--seat-available);
+}
+
+.legend-box.selected {
+    background-color: var(--main-one);
+}
+
+.legend-box.booked {
+    background-color: var(--seat-booked);
+}
+
+.selected-seat-box {
+    margin-top: 25px;
+    background: white;
+    border: 1px solid #ffd6d6;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.selected-seat-box strong {
+    color: var(--main-one);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.selected-seat-box p {
+    color: black;
+    word-break: break-word;
+    font-weight: 600;
+}
+
+.bdps-continue-btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--main-one);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.bdps-continue-btn:hover:not(:disabled) {
+    background: var(--main-two);
+}
+
+.bdps-continue-btn:disabled {
+    background: #999999;
+    cursor: not-allowed;
 }
 
 
 /*SeatGrid Component*/
-.bus-wrapper{
-    margin-top: 26px;
+.bus-wrapper {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }
 
-.bus-body{
-    background:var(--error-bg);
-    border:3px solid var(--main-one);
-    border-radius:26px;
-    padding:25px;
-    display:flex;
-    gap:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+.bus-body {
+    background: var(--error-bg);
+    border: 3px solid var(--main-one);
+    border-radius: 26px;
+    padding: 25px;
+    display: flex;
+    gap: 25px;
+    box-shadow: 0 8px 25px #00000014;
 }
 
-.bus-seat-section{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
+.bus-seat-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 
 }
 
-.seat-row{
-    display:flex;
-    align-items:center;
-    gap:18px;
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-.seat-pair{
-    display:flex;
-    gap:10px;
+.seat-pair {
+    display: flex;
+    gap: 8px;
 }
 
-.bus-aisle{
-    width:50px;
+.bus-aisle {
+    width: 38px;
 }
 
-
-.seat-empty{
-    width:40px;
-    height:40px;
+.seat-empty {
+    width: 40px;
+    height: 40px;
 }
-
 
 /*Seat Component*/
-.seat{
+.seat {
     position: relative;
-    width:40px;
-    height:40px;
-    border:none;
+    width: 40px;
+    height: 40px;
+    border: none;
     border-radius: 12px 12px 6px 6px;
-    background:white;
-    border:2px solid var(--border-light);
-    display:flex;
+    background: var(--seat-available);
+    border: 2px solid var(--border-light);
+    display: flex;
     justify-content:center;
     align-items:center;
     cursor:pointer;
     transition:.25s;
     font-weight:600;
-    color:#444;
-    box-shadow:0 3px 6px rgba(0,0,0,.08);
+    color: var(--seat-text);
+    box-shadow:0 3px 6px #00000014;
 }
 
 .seat::before{
-    content:"";
-    position:absolute;
-    width:30px;
-    height:6px;
-    background:#d9d9d9;
-    margin-bottom:-32px;
-    border-radius:8px;
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 6px;
+    background: #d9d9d9;
+    margin-bottom: -32px;
+    border-radius: 8px;
 }
 
-.seat:hover:not(:disabled){
-    transform:translateY(-2px);
-    border-color:var(--main-one);
-    background:#fff5f5;
+.seat:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: var(--main-one);
+    box-shadow: 0 3px 6px black;
 }
 
-.seat.selected{
-    background:var(--main-one);
-    color:white;
-    border-color:var(--main-one);
+.seat.selected {
+    background: var(--main-one);
+    color: white;
+    border-color: var(--main-one);
 }
 
-.seat.selected::before{
-    background:white;
-
+.seat.selected::before {
+    background: white;
 }
 
-.seat.booked{
-    background:#cfcfcf;
-    border-color:#b4b4b4;
-    color:#666;
-    cursor:not-allowed;
+.seat.booked {
+    background: var(--seat-booked);
+    border-color: var(--border-light);
+    color: var(--border-light);
+    cursor: not-allowed;
 }
 
-.seat.booked::before{
-    background:#9d9d9d;
+.seat.booked::before {
+    background: var(--border-light);
 }
 
-.seat-number{
+.seat-number {
     font-size: 0.80rem;
     position:relative;
     z-index:2;
 }
 
-.bus-wrapper{
-    overflow-x:auto;
-    padding-bottom:12px;
+.bus-wrapper {
+    overflow-x: auto;
+    padding-bottom: 12px;
 }
 
 .bus-wrapper::-webkit-scrollbar{
-    height:8px;
+    height: 8px;
 }
 
 .bus-wrapper::-webkit-scrollbar-thumb{
-    background:var(--main-one);
-    border-radius:10px;
+    background: var(--main-one);
+    border-radius: 10px;
 
 }
 
 .bus-wrapper::-webkit-scrollbar-track{
-    background:#f1f1f1;
+    background: #f1f1f1;
+}
+
+
+/*Booking Summary & Payment*/
+.bsp-page {
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    background-color: var(--bg-not-white);
+    align-items: flex-start;
+}
+
+.bsp-container {
+    background-color: var(--bg-white);
+    box-shadow: 0 0 3px #00000014;
+    border-radius: 16px;
+    padding: 16px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.bsp-top-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bsp-company-name {
+    font-size: 0.95rem;
+}
+
+.bsp-bus-name {
+    color: var(--main-one);
+}
+
+.bsp-bus-number {
+    font-size: 1rem;
+    color: var(--text-link);
+    font-weight: 500;
+}
+
+.bsp-route-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.bsp-route {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.bsp-time-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bsp-muted {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.bsp-seats-box-out {
+    display: flex;
+    justify-content: center;
+    padding: 16px 10px 10px;
+    border-top: 1px solid var(--border-light);
+    margin-top: 14px;
+}
+
+.bsp-seats-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--main-one);
+    border-radius: 4px;
+    background-color: var(--error-bg);
+    padding: 4px;
+}
+
+.bsp-seats-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.bsp-seat-numbers {
+    padding-left: 6px;
+    font-weight: 600;
 }

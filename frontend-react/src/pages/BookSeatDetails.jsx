@@ -75,13 +75,10 @@ function BookSeatDetails() {
         }
     }
 
-
     useEffect(()=>{
         fetchBusDetails();
         fetchSeats();
     },[scheduleID])
-
-
 
     if(scheduleLoading) return <p>Loading...</p>;
     if(scheduleError) return <p>{scheduleError}</p>;
@@ -89,110 +86,74 @@ function BookSeatDetails() {
     if(seatsLoading) return <p>Loading seats...</p>;
     if(seatsError) return <p>{seatsError}</p>;
 
-    return (
-        <div className="page-container book-details-page">
-            <div className="bdp-container">
-                <div className="bdp-header">
-                    <div>
-                        <h2 className="bdp-bus-name">
-                            {scheduleDetails.bus_name}
-                            <span className="bdp-bus-number">
-                                {scheduleDetails.bus_number}
-                            </span>
-                        </h2>
-                    </div>
+  return (
+    <div className="page-container book-details-page">
+      <div className="bdp-container">
 
-                    <div className="bdp-company">
-                        <FontAwesomeIcon icon={faBuilding}/>
-                        <span>{scheduleDetails.bus_operator}</span>
-                    </div>
-                </div>
-
-                <div className="bdp-route-box">
-                    <div>
-                        <h2>{scheduleDetails.source}</h2>
-                    </div>
-                    <FontAwesomeIcon icon={faArrowRight} className="bdp-route-icon"/>
-                    <div>
-                        <h2>{scheduleDetails.destination}</h2>
-                    </div>
-                </div>
-
-                <div className="bdp-details-grid">
-                    <div className="bdp-detail-card">
-                        <FontAwesomeIcon icon={faCalendarDays}/>
-                        <div>
-                            <small>Departure</small>
-                            <p>{new Date(scheduleDetails.departure_datetime).toLocaleString()}</p>
-                        </div>
-                    </div>
-
-                    <div className="bdp-detail-card">
-                        <FontAwesomeIcon icon={faClock}/>
-                        <div>
-                            <small>Duration</small>
-                            <p>{scheduleDetails.total_duration}</p>
-                        </div>
-                    </div>
-
-                    <div className="bdp-detail-card">
-                        <FontAwesomeIcon icon={faCalendarDays}/>
-                        <div>
-                            <small>Arrival</small>
-                            <p>{new Date(scheduleDetails.arrival_datetime).toLocaleString()}</p>
-                        </div>
-                    </div>
-
-                    <div className="bdp-detail-card">
-                        <FontAwesomeIcon icon={faRoad}/>
-                        <div>
-                            <small>Distance</small>
-                            <p>{scheduleDetails.distance} Km</p>
-                        </div>
-                    </div>
-
-                    <div className="bdp-detail-card">
-                        <FontAwesomeIcon icon={faBus}/>
-                        <div>
-                            <small>Bus Type</small>
-                            <p>{scheduleDetails.bus_type}</p>
-                        </div>
-                    </div>
-
-                    <div className="bdp-detail-card">
-                        <FontAwesomeIcon icon={faCouch}/>
-                        <div>
-                            <small>Available</small> <p>{scheduleDetails.available_seats}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="bdps-container">
-                  <h2 className="bdps-title">Select Your Seats</h2>
-                  <div className="seat-legend">
-                    <div><span className="legend-box available"></span>Available</div>
-                    <div><span className="legend-box selected"></span>Selected</div>
-                    <div><span className="legend-box booked"></span>Booked</div>
-                  </div>
-                  <SeatGrid seats={seats} selectedSeats={selectedSeats} toggleSeat={toggleSeat} />
-                  <div className="selected-seat-box">
-                    <strong>Selected Seats ({selectedSeats.length})</strong>
-                    <p>{selectedSeats.length===0 ? 'No seats selected' : selectedSeats.map(seat=>seat.seat_number).join(', ') }</p>
-                  </div>
-                  {continueLoading ? (
-                    <button className="bdps-continue-btn" disabled={continueLoading || selectedSeats.length===0} onClick={handleContinue}>
-                        Please Wait...
-                    </button>
-                  ) : (
-                    <button className="bdps-continue-btn" disabled={selectedSeats.length===0} onClick={handleContinue}>
-                        Continue Booking
-                    </button>
-                  )}
-                </div>
-            </div>
+        <div className='bdp-top-box'>
+          <h2 className="bdp-bus-name">{scheduleDetails.bus_name} <span className="bdp-bus-number">{scheduleDetails.bus_number}</span></h2>
+          <p><span className='bdp-muted'>Company : </span>{scheduleDetails.bus_operator}</p>
         </div>
-    );
 
+        <div className="bdp-route-box">
+            <h2>{scheduleDetails.source}</h2>
+            <FontAwesomeIcon icon={faArrowRight} className="bdp-route-icon"/>    
+            <h2>{scheduleDetails.destination}</h2>
+        </div>
+
+        <div className="bdp-time-box">
+          <div className='bdp-time-box-in'>
+            <p className='bdp-muted'>Departure</p>
+            <p className='bdp-datetime'>{new Date(scheduleDetails.departure_datetime).toLocaleString()}</p>
+          </div>
+          <p className='bdp-muted'>{scheduleDetails.total_duration}</p>
+          <div>
+            <p className='bdp-muted bdp-time-arrival'>Arrival</p>
+            <p className='bdp-datetime'>{new Date(scheduleDetails.arrival_datetime).toLocaleString()}</p>
+          </div>
+        </div>
+        
+        <div className='bdp-distance-box'>
+          <p><span className='bdp-muted'>Distance : </span>{scheduleDetails.distance} Km</p>
+          <p><span className='bdp-muted'>Bus Type : </span>{scheduleDetails.bus_type}</p>
+        </div>
+
+        <div className="bdp-avl-box">
+          <p className='bdp-avl-box-text'>Available Seats : <span className='bdp-avl-box-seats'>{scheduleDetails.available_seats}</span></p>
+        </div>
+
+
+        <div className="bdps-container">
+
+          <h2 className="bdps-title">Select Your Seats</h2>
+
+          <div className="bdps-seats-legend-box">
+            <div><span className="legend-box available"></span>Available</div>
+            <div><span className="legend-box selected"></span>Selected</div>
+            <div><span className="legend-box booked"></span>Booked</div>
+          </div>
+
+          <SeatGrid seats={seats} selectedSeats={selectedSeats} toggleSeat={toggleSeat} />
+        
+          <div className="selected-seat-box">
+            <strong>Selected Seats ({selectedSeats.length})</strong>
+            <p>{selectedSeats.length===0 ? 'No seats selected' : selectedSeats.map(seat=>seat.seat_number).join(', ') }</p>
+          </div>
+
+          {continueLoading ? (
+            <button className="bdps-continue-btn" disabled={continueLoading || selectedSeats.length===0} onClick={handleContinue}>
+              Please Wait...
+            </button>
+            ) : (
+            <button className="bdps-continue-btn" disabled={selectedSeats.length===0} onClick={handleContinue}>
+              Continue Booking
+            </button>
+          )}
+          
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default BookSeatDetails;

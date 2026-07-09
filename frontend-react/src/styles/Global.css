@@ -525,13 +525,32 @@ body {
 
     box-shadow: 0 0 4px #c0c0c0;
     transition: 200ms;
+
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.7s ease-out forwards;
 }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero-search-box:hover {
     box-shadow: 0 0 4px #4f4f4f;
     transform: scale(1.03);
-    .hero-search-element-left {
-        background-color: #c400004b;
-    }
+}
+.hero-search-box:hover .hero-search-element-left {
+    background-color: #c400004b;
+}
+.hero-search-box:hover .hero-search-element-right {
+    transform: scale(1.15);
 }
 
 .hero-search-element-left {
@@ -617,16 +636,32 @@ body {
 }
 
 .pr-route-card {
+    display: flex;
+    justify-content: space-between;
     width: 24%;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 5px #bdbdbd;
-    display: flex;
-    justify-content: space-between;
     padding: 10px;
+    box-shadow: 0 0 5px #bdbdbd;
+
+    animation: cardShadow 1.5s ease-out;
+    transition: box-shadow 0.2s;
 }
+
+@keyframes cardShadow {
+    0% {
+        box-shadow: 0 6px 14px #fe0000af;
+    }
+    50% {
+        box-shadow: 0 6px 14px red;
+    }
+    100% {
+        box-shadow: 0 0 5px #bdbdbd;
+    }
+}
+
 .pr-route-card:hover {
-    box-shadow: 0 0 5px var(--main-two);
+    box-shadow: 0 4px 8px #fe0000af;
 }
 
 .pr-card-left {
