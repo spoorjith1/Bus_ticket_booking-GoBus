@@ -12,14 +12,14 @@ function OperatorScheduleDetail() {
     setLoading(true);
     try {
       const response = await axiosInstance.get(`/operator/schedules/${opScheduleID}/details/`);
-      setSchedule(response.data);
-      setError("");
+      setSchedule(response.data)
+      setError('')
     }
     catch (error) {
       setError("Failed to load schedule")
     }
     finally {
-      setLoading(false);
+      setLoading(false)
     }
   }
 

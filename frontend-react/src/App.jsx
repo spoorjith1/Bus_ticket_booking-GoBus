@@ -23,6 +23,7 @@ import OperatorManageSchedules from './pages/OperatorManageSchedules';
 import OperatorScheduleDetail from './pages/OperatorScheduleDetail';
 import BookSeatDetails from './pages/BookSeatDetails';
 import BookingSummaryNPayment from './pages/BookingSummaryNPayment';
+import BookingDetails from './pages/BookingDetails';
 
 
 function AppRoutes() {
@@ -49,6 +50,7 @@ function AppRoutes() {
       <Route path='/operator/schedules/:opScheduleID' element={<PrivateRoute role='operator'><OperatorScheduleDetail /></PrivateRoute>} />
       <Route path='/book/ticket/details/:scheduleID' element={<PrivateRoute role='customer'><BookSeatDetails /></PrivateRoute>} />
       <Route path='/booking-summary' element={<PrivateRoute role='customer'><BookingSummaryNPayment /></PrivateRoute>} />
+      <Route path='/customer/bookings/:bookingID' element={<PrivateRoute role='customer'><BookingDetails /></PrivateRoute>} />
     </Routes>
     <Footer />
     </>

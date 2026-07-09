@@ -156,6 +156,7 @@ function CustomerDashboard() {
               <p>{booking.seat_numbers.join(', ')}</p>
               <p>{booking.total_amount}</p>
               <p>{booking.booked_at}</p>
+              <div onClick={()=> navigate(`/customer/bookings/${booking.id}`)}>Details</div>
             </div>
           ))}
         </div>
