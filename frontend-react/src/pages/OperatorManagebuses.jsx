@@ -96,6 +96,7 @@ function OperatorManagebuses() {
           <div className='opmp-input-box'>
             <label className='opmp-label'>Bus Type</label>
             <select value={busType} onChange={(e)=> setBusType(e.target.value)} className='opmp-input'>
+              <option value=''>---Select Bus Type---</option>
               <option value='luxury'>Luxury</option>
               <option value='sleeper'>Sleeper</option>
               <option value='ac_bus'>Ac Bus</option>
