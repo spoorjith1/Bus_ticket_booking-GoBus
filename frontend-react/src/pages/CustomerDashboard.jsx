@@ -146,17 +146,33 @@ function CustomerDashboard() {
       ) : bookings.length === 0 ? (
         <div className='no-bookings-msg-box'><p className='no-bookings-msg'>No bookings found</p></div>
       ) : (
-        <div>
+        <div className='customer-bookings-grid'>
           {bookings.map((booking) => (
-            <div key={booking.id}>
-              <p>{booking.bus_name}</p>
-              <p>{booking.bus_number}</p>
-              <p>{booking.source} → {booking.destination}</p>
-              <p>{booking.distance}</p>
-              <p>{booking.seat_numbers.join(', ')}</p>
-              <p>{booking.total_amount}</p>
-              <p>{booking.booked_at}</p>
-              <div onClick={()=> navigate(`/customer/bookings/${booking.id}`)}>Details</div>
+            <div key={booking.id} className="booking-card">
+
+              <div className="booking-card-header">
+                <div>
+                  <h3 className="booking-bus-name">{booking.bus_name}</h3>
+                  <p className="booking-bus-number">{booking.bus_number}</p>
+                </div>
+                <span className="booking-price">{booking.total_amount} Coins</span>
+              </div>
+
+              <div className="booking-route">
+                <strong>{booking.source}</strong>
+                <span>→</span>
+                <strong>{booking.destination}</strong>
+              </div>
+
+              <div className="booking-info">
+                <p><span>Departure</span>{new Date(booking.departure_datetime).toLocaleString()}</p>
+                <p><span>Arrival</span>{new Date(booking.arrival_datetime).toLocaleString()}</p>
+                <p><span>Seats</span>{booking.seat_numbers.join(", ")}</p>
+                <p><span>Booked On</span>{new Date(booking.booked_at).toLocaleString()}</p>
+              </div>
+
+              <button className="booking-details-btn" onClick={() => navigate(`/customer/bookings/${booking.id}`)}>View Details</button>
+
             </div>
           ))}
         </div>

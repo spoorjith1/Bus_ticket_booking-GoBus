@@ -24,7 +24,7 @@ import OperatorScheduleDetail from './pages/OperatorScheduleDetail';
 import BookSeatDetails from './pages/BookSeatDetails';
 import BookingSummaryNPayment from './pages/BookingSummaryNPayment';
 import BookingDetails from './pages/BookingDetails';
-
+import PaymentSuccess from './pages/PaymentSuccess';
 
 function AppRoutes() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -51,6 +51,7 @@ function AppRoutes() {
       <Route path='/book/ticket/details/:scheduleID' element={<PrivateRoute role='customer'><BookSeatDetails /></PrivateRoute>} />
       <Route path='/booking-summary' element={<PrivateRoute role='customer'><BookingSummaryNPayment /></PrivateRoute>} />
       <Route path='/customer/bookings/:bookingID' element={<PrivateRoute role='customer'><BookingDetails /></PrivateRoute>} />
+      <Route path='/payment-success' element={<PrivateRoute role='customer'><PaymentSuccess /></PrivateRoute>} />
     </Routes>
     <Footer />
     </>

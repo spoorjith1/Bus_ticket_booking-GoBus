@@ -25,11 +25,19 @@
     --seat-available: white;
     --seat-border: #444444;
     --seat-text: #2e2e2e;
+
+    --bsp-card-shadow: #00000014;
+    --bsp-border: #dddddd;
+    --bsp-bg: #fafafa;
+    --bsp-total: #d40000;
+    --bsp-wallet: #fff7e8;
+    --bsp-wallet-border: #ffd88a;
 }
 
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .page-container {
@@ -365,89 +373,521 @@
 
 
 /*Booking Summary & Payment*/
-.bsp-page {
+
+.bsp-page{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    background:var(--bg-not-white);
+    padding:45px 20px;
+}
+
+.bsp-container{
+    width:100%;
+    max-width:850px;
+    background:white;
+    border-radius:16px;
+    box-shadow:0 8px 24px var(--bsp-card-shadow);
+    padding:28px;
+}
+
+.bsp-summary-card{
+    border-bottom:1px solid var(--bsp-border);
+    padding-bottom:20px;
+}
+
+.bsp-top-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.bsp-bus-name{
+    color:var(--main-one);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:1.9rem;
+}
+
+.bsp-icon{
+    font-size:1.4rem;
+}
+
+.bsp-bus-number{
+    margin-left:14px;
+    color:var(--text-link);
+    font-size:1rem;
+    font-weight:500;
+    padding-top: 4px;
+}
+
+.bsp-company-name{
+    color:var(--text-muted);
+    font-size:1rem;
+}
+
+.bsp-route-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:35px;
+    margin:22px 0;
+}
+
+.bsp-route-box h2{
+    font-size:1.8rem;
+}
+
+.bsp-route-icon{
+    color:var(--main-one);
+    font-size:1.3rem;
+}
+
+.bsp-time-box{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+
+.bsp-arrival-box{
+    text-align:right;
+}
+
+.bsp-muted{
+    color:var(--text-muted);
+    font-size:.9rem;
+    margin-bottom:4px;
+}
+
+.bsp-seats-box-out{
+    display:flex;
+    justify-content:center;
+    margin-top:22px;
+}
+
+.bsp-seats-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--error-bg);
+    border:1px solid var(--main-one);
+    border-radius:30px;
+    padding:10px 20px;
+}
+
+.bsp-seat-numbers{
+    font-weight:600;
+}
+
+.bsp-payment-card{
+    margin-top:30px;
+}
+
+.bsp-payment-heading{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.bsp-payment-icon{
+    color:var(--main-one);
+}
+
+.bsp-payment-details-card{
+    background:var(--bsp-bg);
+    border:1px solid var(--bsp-border);
+    border-radius:12px;
+    padding:18px;
+}
+
+.bsp-payment-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px dashed #dddddd;
+}
+
+.bsp-payment-row:last-child{
+    border:none;
+}
+
+.bsp-total-row{
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--bsp-total);
+}
+
+.bsp-wallet-card{
+    margin-top:25px;
+    background:var(--bsp-wallet);
+    border:1px solid var(--bsp-wallet-border);
+    border-radius:12px;
+    padding:18px;
+}
+
+.bsp-wallet-card h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+    color:#995800;
+}
+
+.bsp-wallet-icon{
+    color:#d28b00;
+}
+
+.bsp-wallet-row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+}
+
+.bsp-payment-btn{
+    width:100%;
+    margin-top:28px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:var(--main-one);
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.bsp-payment-btn:hover:not(:disabled){
+    background:var(--main-two);
+}
+
+.bsp-payment-btn:disabled{
+    background:#999;
+    cursor:not-allowed;
+}
+
+@media(max-width:700px){
+    .bsp-top-box{
+        flex-direction:column;
+        gap:10px;
+        align-items:flex-start;
+    }
+    .bsp-route-box{
+        gap:16px;
+    }
+    .bsp-route-box h2{
+        font-size:1.3rem;
+    }
+    .bsp-time-box{
+        flex-direction:column;
+        gap:16px;
+    }
+    .bsp-arrival-box{
+        text-align:left;
+    }
+    .bsp-payment-row{
+        font-size:.92rem;
+    }
+}
+
+.bsp-wallet-text{
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: #fef3c6;
+    border-left: 4px solid #f2b400;
+    border-radius: 8px;
+    color: #534401;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+}
+
+
+/* Payment Success */
+.bps-page{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#f4f4f4;
+    padding:30px;
+}
+
+.bps-card{
+    width:100%;
+    max-width:520px;
+    background:white;
+    border-radius:18px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+.bps-success-circle{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:#24b34b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.bps-success-icon{
+    color:white;
+    font-size:48px;
+}
+
+.bps-heading{
+    margin-top:22px;
+    color:#24b34b;
+    font-size:2rem;
+}
+
+.bps-subheading{
+    margin-top:12px;
+    color:#666;
+    line-height:1.6;
+}
+
+.bps-summary{
+    margin-top:28px;
+    border:1px solid #ececec;
+    border-radius:12px;
+    padding:18px;
+}
+
+.bps-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px dashed #ddd;
+}
+
+.bps-row:last-child{
+    border-bottom:none;
+}
+
+.bps-btn-primary{
+    margin-top:28px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:var(--main-one);
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.bps-btn-primary:hover{
+    background:var(--main-two);
+}
+
+.bps-btn-secondary{
+    margin-top:12px;
+    width:100%;
+    padding:14px;
+    border:1px solid var(--main-one);
+    background:white;
+    color:var(--main-one);
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.bps-btn-secondary:hover{
+    background:#fff2f2;
+}
+
+.bps-home-btn{
+    margin-top:22px;
+    border:none;
+    background:none;
+    color:#666;
+    cursor:pointer;
+    font-size:.95rem;
+    transition:.25s;
+}
+
+.bps-home-btn:hover{
+    color:var(--main-one);
+}
+
+.bps-btn-primary,
+.bps-btn-secondary,
+.bps-home-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+
+
+/*ticket page*/
+.cbd-page {
     display: flex;
     justify-content: center;
-    padding-top: 60px;
-    background-color: var(--bg-not-white);
+    margin-top: 60px;
+}
+
+.cbd-ticket {
+    width: 870px;
+    height: 370px;
+    background-image: url('/ticket-cover.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px #00000014;
+}
+
+.cbd-overlay {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.cbd-top-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cbd-logo {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+.cbd-ticket-icon {
+    color: var(--main-one);
+    font-size: 1.1rem;
+    padding-right: 6px;
+}
+
+
+.cbd-sec-box {
+    display: flex;
+    justify-content: space-between;
     align-items: flex-start;
 }
 
-.bsp-container {
-    background-color: var(--bg-white);
-    box-shadow: 0 0 3px #00000014;
-    border-radius: 16px;
-    padding: 16px;
-    width: 100%;
-    max-width: 800px;
-}
-
-.bsp-top-box {
+.cbd-confirm-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    border: 2px solid #05be05;
+    padding: 3px 7px;
+    border-radius: 12px;
+    background-color: #05be0518;
 }
 
-.bsp-company-name {
+.cbd-confirm-box p {
+    color: #04ad04;
+}
+
+.cbd-check-icon {
+    color: #05be05;
+}
+
+
+.cbd-bus-details-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 4px;
+}
+
+.cbd-bus-operator {
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
-.bsp-bus-name {
+.cbd-bus-details-in {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.cbd-route-box {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.cbd-arrow-icon {
+    font-size: 1.1rem;
     color: var(--main-one);
 }
 
-.bsp-bus-number {
-    font-size: 1rem;
-    color: var(--text-link);
-    font-weight: 500;
-}
-
-.bsp-route-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-
-.bsp-route {
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-
-.bsp-time-box {
+.cbd-time-box {
     display: flex;
     justify-content: space-between;
+    margin-top: 3px;
 }
 
-.bsp-muted {
-    font-size: 0.9rem;
+.cbd-muted {
+    font-size: 0.92rem;
     color: var(--text-muted);
 }
 
-.bsp-seats-box-out {
+.cbd-time-box-in {
+    display: flex;
+    flex-direction: column;
+}
+
+.cbd-arrival-text {
+    text-align: end;
+}
+
+.cbd-seats-box {
+    margin-top: 6px;
     display: flex;
     justify-content: center;
-    padding: 16px 10px 10px;
-    border-top: 1px solid var(--border-light);
-    margin-top: 14px;
 }
 
-.bsp-seats-box {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid var(--main-one);
-    border-radius: 4px;
-    background-color: var(--error-bg);
-    padding: 4px;
+.cbd-seats {
+    font-size: 1.1rem;
+    border: 1px solid var(--border-light);
+    padding: 3px 6px;
+    border-radius: 3px;
 }
 
-.bsp-seats-text {
-    color: var(--text-muted);
-    font-size: 0.95rem;
+.cbd-payment-box {
+    margin-top: 10px;
+    border-top: 1px dashed var(--border-light);
+    padding: 4px 100px;
 }
 
-.bsp-seat-numbers {
-    padding-left: 6px;
-    font-weight: 600;
+.cbd-payment-box h3 {
+    text-align: center;
+}
+
+.cbd-payment-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--shadow-light);
+}
+
+.cbd-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
 }
